@@ -2,6 +2,7 @@ from time import sleep
 import numpy as np
 import json
 from file_of_greatness import system_check
+
 sense = system_check()
 
 def test_setup():
@@ -21,7 +22,7 @@ BLUE = (0, 0, 255)
 matrix = np.full((8,8,3), BLUE) #[[BLUE for column in range(8)] for row in range(8)]
 
 def flatten(matrix):
-    return [pixel for row in matrix for pixel in row] #matrix.reshape(-1,3)
+    return matrix.reshape(-1,3)
 
 colour = BLUE
 clear = (0,0,0)
@@ -29,7 +30,7 @@ clear = (0,0,0)
 FC = colour                                          #START LOWER CASE UNLESS ROUND WHEN GO 1 TALLER
 OO = clear
 
-with open("../letters.json", "r") as letters_json:
+with open("letters.json", "r") as letters_json:
     letters = json.load(letters_json)
 
 BLUE = (0, 0, 255) #callable veriable for colour blue
@@ -53,7 +54,7 @@ def word_scrolling(text):
 
     total_columns = len(word_list[0])-7
     print(word_list)
-    # Loop through frames 
+    # Loop through frames
     for frame in range(total_columns):
         # Set each physical column for every frame
         for physical_column in range(COLUMNS_IN_SCREEN):

@@ -2,11 +2,13 @@ from time import sleep
 import numpy as np
 import json
 
-with open("info.read", 'r') as info:
-    if info.read() == "Xbuntu":
+with open("../info.read", 'r') as info:
+    if info.read().__contains__("Xbuntu"):
         from sense_emu import SenseHat
+        print("Xbuntu compatible import has been selected")
     else:
         from sense_hat import SenseHat
+        print("Rasberry Pi compatible import has been selected")
     Sense = SenseHat
 
 def test_setup():

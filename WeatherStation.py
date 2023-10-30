@@ -3,8 +3,8 @@ import numpy as np
 import screen_scrolling_testing as SST
 import datetime as DT
 
-with open("info.read", 'r') as info:
-    if info.read() == "Xbuntu":
+with open("../info.read", 'r') as info:
+    if info.read().__contains__("Xbuntu"):
         from sense_emu import SenseHat
     else:
         from sense_hat import SenseHat

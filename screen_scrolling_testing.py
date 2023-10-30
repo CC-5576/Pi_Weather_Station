@@ -1,7 +1,13 @@
-from sense_emu import SenseHat
 from time import sleep
 import numpy as np
 import json
+
+with open("info.read", 'r') as info:
+    if info.read() == "Xbuntu":
+        from sense_emu import SenseHat
+    else:
+        from sense_hat import SenseHat
+    Sense = SenseHat
 
 def test_setup():
     """ensures that the dysplay is working correctly"""
@@ -30,7 +36,7 @@ clear = (0,0,0)
 FC = colour                                          #START LOWER CASE UNLESS ROUND WHEN GO 1 TALLER
 OO = clear
 
-with open("letters.json", "r") as letters_json:
+with open("Pi_Weather_Station/letters.json", "r") as letters_json:
     letters = json.load(letters_json)
 
 BLUE = (0, 0, 255) #callable veriable for colour blue

@@ -20,3 +20,13 @@ def system_check():
 
     Sense = SenseHat()
     return(Sense)
+
+days_of_the_week = {
+    "6": "Sunday",
+    "5": "Saturday",
+    "4": "Friday",
+    "3": "Thursday",
+    "2": "Wednesday",
+    "1": "Tuesday",
+    "0": "Monday"
+}

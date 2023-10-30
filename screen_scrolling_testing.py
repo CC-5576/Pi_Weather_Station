@@ -53,7 +53,6 @@ def word_scrolling(text):
     COLUMNS_IN_SCREEN = 8
 
     total_columns = len(word_list[0])-7
-    print(word_list)
     # Loop through frames
     for frame in range(total_columns):
         # Set each physical column for every frame
@@ -61,6 +60,5 @@ def word_scrolling(text):
             # Invert column ordering because 0,0 is top right
             matrix[physical_column, :] = word_list[:, 7 - physical_column + frame]
         
-        print(flatten(matrix))
         sense.set_pixels(flatten(matrix))
         sleep(0.05)

@@ -1,11 +1,15 @@
-from keyboard import is_pressed
-from collections import namedtuple
+#from keyboard import is_pressed
+#from collections import namedtuple
 from time import sleep
 import numpy as np
 import screen_scrolling_testing as SST
 import datetime as DT
-
+try:
+    from gpiozero import CPUTemperature; CPU_temp = CPUTemperature().temperature
+except:
+    CPU_temp = 60
 from file_of_greatness import system_check, days_of_the_week
+
 sense = system_check()
 
 ws = SST.word_scrolling
@@ -43,7 +47,7 @@ class CurrentReadings:
         self.temperature = current_temp
         self.pressure = current_pressure
         self.humidity = current_humid
-        self.validate()
+        self._validate()
     
     def _validate(self):
         if not isinstance(self.temperature, float) or not isinstance(self.pressure, float) or not isinstance(self.humidity, float):
@@ -54,15 +58,17 @@ class CurrentReadings:
 
 
 def readings():
-    temperature = sense.get_temperature()
+    temperature = CPU_temp - sense.get_temperature()
     pressure = sense.get_pressure()
     humidity = sense.get_humidity()
     value = CurrentReadings(temperature, pressure, humidity)
     return(value)
 
+iteration_count = 0
 
 while True:
     event = sense.stick.get_events()
+    movment = sense.accelerometer
     # if is_pressed("C"):
     #     break
     try: # because this is not always pressed it can and does error when no data input.
@@ -78,14 +84,25 @@ while True:
         
         if event[0].direction == "down":
             sensor_values = readings()
-            ws("temperature" + str(sensor_values.temperature))
+            ws("temperature " + str(int(sensor_values.temperature)))
             sleep(1)
-            ws("pressure" + str(sensor_values.pressure))
+            ws("pressure " + str(int(sensor_values.pressure)))
             sleep(1)
-            ws("humidity" + str(sensor_values.humidity))
+            ws("humidity " + str(int(sensor_values.humidity)) + "%")
+            
     except KeyboardInterrupt as e:
         print(e)
         break
     except Exception as e: # outputs the error message when an error state happens
         print(e)
+
+    try:
+        if movment["roll"] ==  movment_old["roll"]:
+            print(movment["roll"])
+    except Exception as e:
+        print(e)
+    
+    movment_old = movment
+    iteration_count += 1
+    print(iteration_count)
     sleep(1)

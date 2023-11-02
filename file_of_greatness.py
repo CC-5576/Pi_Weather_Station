@@ -30,3 +30,11 @@ days_of_the_week = {
     "1": "Tuesday",
     "0": "Monday"
 }
+
+def file_iteration_count():
+    with open("iteration_count", "r") as current_iteration:
+        current_iteration = int(current_iteration.read())
+        with open("iteration_count", "w") as new_iteration:
+            new_iteration.write(str(current_iteration+1))
+    
+    return(current_iteration)

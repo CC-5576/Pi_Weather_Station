@@ -9,8 +9,8 @@ try:
     from gpiozero import CPUTemperature; CPU_temp = CPUTemperature().temperature
 except:
     CPU_temp = 60
-from file_of_greatness import system_check, days_of_the_week
-
+from file_of_greatness import system_check, days_of_the_week, file_iteration_count
+file_iteration_count = file_iteration_count()
 
 FORMAT = '%(asctime)s %(message)s'
 log.basicConfig(filename="WeatherStation.log", filemode="a", format=FORMAT)
@@ -82,8 +82,8 @@ def readings():
 def log(stick_data):
     sensor_data = readings()
     time_value = time_values()
-    logger.warning(f"Sensor_data(t,p,h): {sensor_data.temperature}, {sensor_data.pressure}, {sensor_data.humidity} \tloop_iteration: {iteration_count} \tstick_event: {stick_data}")
-    print(f"Sensor_data(t,p,h): {sensor_data.temperature}, {sensor_data.pressure}, {sensor_data.humidity} \tloop_iteration: {iteration_count} \tstick_event: {stick_data}")
+    logger.warning(f"file_iteration: {file_iteration_count} \tSensor_data(t,p,h): {sensor_data.temperature}, {sensor_data.pressure}, {sensor_data.humidity} \tloop_iteration: {iteration_count} \tstick_event: {stick_data}")
+    print((f"file_iteration: {file_iteration_count} \tSensor_data(t,p,h): {sensor_data.temperature}, {sensor_data.pressure}, {sensor_data.humidity} \tloop_iteration: {iteration_count} \tstick_event: {stick_data}"))
 
         
 def time_output():

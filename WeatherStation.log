@@ -9,3 +9,97 @@
 2023-11-02 00:06:01,745 Sensor_data(t,p,h): {sensor_date.temperature}, {sensor_data.pressure}, {sensor_data.humidity} 	loop_iteration: {iteration_count} 	stick_event: {stick_data}
 2023-11-02 00:06:02,763 Sensor_data(t,p,h): {sensor_date.temperature}, {sensor_data.pressure}, {sensor_data.humidity} 	loop_iteration: {iteration_count} 	stick_event: {stick_data}
 2023-11-02 00:06:03,783 Sensor_data(t,p,h): {sensor_date.temperature}, {sensor_data.pressure}, {sensor_data.humidity} 	loop_iteration: {iteration_count} 	stick_event: {stick_data}
+2023-11-02 00:10:49,072 start up: STARTING
+2023-11-02 00:10:50,229 Sensor_data(t,p,h): {sensor_date.temperature}, {sensor_data.pressure}, {sensor_data.humidity} 	loop_iteration: {iteration_count} 	stick_event: {stick_data}
+2023-11-02 00:10:51,246 Sensor_data(t,p,h): {sensor_date.temperature}, {sensor_data.pressure}, {sensor_data.humidity} 	loop_iteration: {iteration_count} 	stick_event: {stick_data}
+2023-11-02 00:10:52,263 Sensor_data(t,p,h): {sensor_date.temperature}, {sensor_data.pressure}, {sensor_data.humidity} 	loop_iteration: {iteration_count} 	stick_event: {stick_data}
+2023-11-02 00:10:53,300 Sensor_data(t,p,h): {sensor_date.temperature}, {sensor_data.pressure}, {sensor_data.humidity} 	loop_iteration: {iteration_count} 	stick_event: {stick_data}
+2023-11-02 00:10:54,318 Sensor_data(t,p,h): {sensor_date.temperature}, {sensor_data.pressure}, {sensor_data.humidity} 	loop_iteration: {iteration_count} 	stick_event: {stick_data}
+2023-11-02 00:11:04,391 Sensor_data(t,p,h): {sensor_date.temperature}, {sensor_data.pressure}, {sensor_data.humidity} 	loop_iteration: {iteration_count} 	stick_event: {stick_data}
+2023-11-02 00:11:05,409 Sensor_data(t,p,h): {sensor_date.temperature}, {sensor_data.pressure}, {sensor_data.humidity} 	loop_iteration: {iteration_count} 	stick_event: {stick_data}
+2023-11-02 00:11:06,427 Sensor_data(t,p,h): {sensor_date.temperature}, {sensor_data.pressure}, {sensor_data.humidity} 	loop_iteration: {iteration_count} 	stick_event: {stick_data}
+2023-11-02 00:11:07,444 Sensor_data(t,p,h): {sensor_date.temperature}, {sensor_data.pressure}, {sensor_data.humidity} 	loop_iteration: {iteration_count} 	stick_event: {stick_data}
+2023-11-02 00:11:08,462 Sensor_data(t,p,h): {sensor_date.temperature}, {sensor_data.pressure}, {sensor_data.humidity} 	loop_iteration: {iteration_count} 	stick_event: {stick_data}
+2023-11-02 00:12:49,311 start up: STARTING
+2023-11-02 00:12:50,482 Sensor_data(t,p,h): 23.139213012695315, 965.3671875, 27.435762405395508 	loop_iteration: 0 	stick_event: list index out of range
+2023-11-02 00:12:51,499 Sensor_data(t,p,h): 23.435401367187502, 965.3310546875, 27.560277938842773 	loop_iteration: 1 	stick_event: list index out of range
+2023-11-02 00:13:01,360 Sensor_data(t,p,h): 23.139213012695315, 965.325439453125, 27.364166259765625 	loop_iteration: 2 	stick_event: list index out of range
+2023-11-02 00:13:02,397 Sensor_data(t,p,h): 23.194747375488284, 965.33154296875, 25.85442352294922 	loop_iteration: 3 	stick_event: list index out of range
+2023-11-02 00:13:03,414 Sensor_data(t,p,h): 23.26879446411133, 965.359375, 27.52292251586914 	loop_iteration: 4 	stick_event: list index out of range
+2023-11-02 00:13:04,431 Sensor_data(t,p,h): 23.416888641357424, 965.33984375, 27.49490737915039 	loop_iteration: 5 	stick_event: list index out of range
+2023-11-02 00:14:49,435 start up: STARTING
+2023-11-02 00:14:50,601 Sensor_data(t,p,h): 25.913118835449218, 965.24951171875, 27.093345642089844 	loop_iteration: 0 	stick_event: []
+2023-11-02 00:14:51,618 Sensor_data(t,p,h): 25.85758447265625, 965.2529296875, 27.090232849121094 	loop_iteration: 1 	stick_event: []
+2023-11-02 00:14:52,634 Sensor_data(t,p,h): 26.005678649902343, 965.209228515625, 26.757156372070312 	loop_iteration: 2 	stick_event: []
+2023-11-02 00:14:53,655 Sensor_data(t,p,h): 25.80205010986328, 965.199951171875, 26.99684715270996 	loop_iteration: 3 	stick_event: []
+2023-11-02 00:15:03,626 Sensor_data(t,p,h): 25.783537384033202, 965.219482421875, 27.096458435058594 	loop_iteration: 4 	stick_event: [InputEvent(timestamp=1698884094.015553, direction='up', action='pressed'), InputEvent(timestamp=1698884094.174966, direction='up', action='released')]
+2023-11-02 00:15:04,644 Sensor_data(t,p,h): 25.83907174682617, 965.193359375, 26.99684715270996 	loop_iteration: 5 	stick_event: []
+2023-11-02 00:15:05,662 Sensor_data(t,p,h): 25.83907174682617, 965.221923828125, 26.95638084411621 	loop_iteration: 6 	stick_event: []
+2023-11-02 00:15:06,679 Sensor_data(t,p,h): 25.80205010986328, 965.2041015625, 27.155603408813477 	loop_iteration: 7 	stick_event: []
+2023-11-02 00:15:07,695 Sensor_data(t,p,h): 25.728003021240234, 965.19482421875, 26.915912628173828 	loop_iteration: 8 	stick_event: []
+2023-11-02 00:16:07,468 start up: STARTING
+2023-11-02 00:16:08,649 Sensor_data(t,p,h): 26.85579302978516, 965.125732421875, 26.17193603515625 	loop_iteration: 0 	stick_event: list index out of range
+2023-11-02 00:16:09,671 Sensor_data(t,p,h): 26.818767578125005, 965.121826171875, 26.872333526611328 	loop_iteration: 1 	stick_event: list index out of range
+2023-11-02 00:16:10,689 Sensor_data(t,p,h): 26.929836303710943, 965.140380859375, 26.925251007080078 	loop_iteration: 2 	stick_event: list index out of range
+2023-11-02 00:16:11,706 Sensor_data(t,p,h): 26.85579302978516, 965.11669921875, 26.884784698486328 	loop_iteration: 3 	stick_event: list index out of range
+2023-11-02 00:16:21,820 Sensor_data(t,p,h): 26.85579302978516, 965.125244140625, 26.853654861450195 	loop_iteration: 4 	stick_event: [InputEvent(timestamp=1698884172.081215, direction='up', action='pressed'), InputEvent(timestamp=1698884172.211631, direction='up', action='released')]
+2023-11-02 00:16:22,842 Sensor_data(t,p,h): 26.9668617553711, 965.118896484375, 26.934589385986328 	loop_iteration: 5 	stick_event: list index out of range
+2023-11-02 00:16:23,859 Sensor_data(t,p,h): 26.94834902954102, 965.114990234375, 26.68556022644043 	loop_iteration: 6 	stick_event: list index out of range
+2023-11-02 00:16:24,876 Sensor_data(t,p,h): 26.91132739257813, 965.110107421875, 26.806962966918945 	loop_iteration: 7 	stick_event: list index out of range
+2023-11-02 00:16:25,892 Sensor_data(t,p,h): 26.874301940917974, 965.123291015625, 26.900348663330078 	loop_iteration: 8 	stick_event: list index out of range
+2023-11-02 00:17:59,380 start up: STARTING
+2023-11-02 00:18:00,550 Sensor_data(t,p,h): 20.019280303955078, 965.110595703125, 26.545480728149414 	loop_iteration: 0 	stick_event: list index out of range
+2023-11-02 00:18:15,397 Sensor_data(t,p,h): 20.019280303955078, 965.13818359375, 27.099573135375977 	loop_iteration: 1 	stick_event: [InputEvent(timestamp=1698884281.362113, direction='down', action='pressed'), InputEvent(timestamp=1698884281.536253, direction='down', action='released')]
+2023-11-02 00:18:16,421 Sensor_data(t,p,h): 20.167374481201172, 965.1220703125, 26.68556022644043 	loop_iteration: 2 	stick_event: list index out of range
+2023-11-02 00:18:17,445 Sensor_data(t,p,h): 20.093327392578125, 965.1298828125, 26.49567413330078 	loop_iteration: 3 	stick_event: list index out of range
+2023-11-02 00:18:18,463 Sensor_data(t,p,h): 20.148861755371094, 965.15087890625, 26.732254028320312 	loop_iteration: 4 	stick_event: list index out of range
+2023-11-02 00:18:19,480 Sensor_data(t,p,h): 20.22290884399414, 965.130859375, 26.498788833618164 	loop_iteration: 5 	stick_event: list index out of range
+2023-11-02 00:18:20,498 Sensor_data(t,p,h): 20.185883392333984, 965.096923828125, 26.754043579101562 	loop_iteration: 6 	stick_event: list index out of range
+2023-11-02 00:18:21,514 Sensor_data(t,p,h): 20.185883392333984, 965.1376953125, 26.738479614257812 	loop_iteration: 7 	stick_event: list index out of range
+2023-11-02 00:18:22,534 Sensor_data(t,p,h): 20.019280303955078, 965.17822265625, 27.105798721313477 	loop_iteration: 8 	stick_event: list index out of range
+2023-11-02 00:18:23,552 Sensor_data(t,p,h): 20.111836303710938, 965.1552734375, 26.66999626159668 	loop_iteration: 9 	stick_event: list index out of range
+2023-11-02 00:18:24,570 Sensor_data(t,p,h): 20.093327392578125, 965.181884765625, 25.9384708404541 	loop_iteration: 10 	stick_event: list index out of range
+2023-11-02 00:18:25,587 Sensor_data(t,p,h): 20.130349029541016, 965.17041015625, 26.529916763305664 	loop_iteration: 11 	stick_event: list index out of range
+2023-11-02 00:18:26,604 Sensor_data(t,p,h): 20.093327392578125, 965.136474609375, 26.542367935180664 	loop_iteration: 12 	stick_event: list index out of range
+2023-11-02 00:18:27,624 Sensor_data(t,p,h): 20.204396118164063, 965.14599609375, 26.607738494873047 	loop_iteration: 13 	stick_event: list index out of range
+2023-11-02 00:18:28,644 Sensor_data(t,p,h): 20.130349029541016, 965.140869140625, 26.49256134033203 	loop_iteration: 14 	stick_event: list index out of range
+2023-11-02 00:18:29,665 Sensor_data(t,p,h): 20.074814666748047, 965.149169921875, 26.511240005493164 	loop_iteration: 15 	stick_event: list index out of range
+2023-11-02 00:18:30,682 Sensor_data(t,p,h): 20.130349029541016, 965.1669921875, 26.43653106689453 	loop_iteration: 16 	stick_event: list index out of range
+2023-11-02 00:18:31,700 Sensor_data(t,p,h): 20.074814666748047, 965.154052734375, 26.97194480895996 	loop_iteration: 17 	stick_event: list index out of range
+2023-11-02 00:18:32,717 Sensor_data(t,p,h): 20.019280303955078, 965.16357421875, 26.620189666748047 	loop_iteration: 18 	stick_event: list index out of range
+2023-11-02 00:18:33,736 Sensor_data(t,p,h): 20.019280303955078, 965.18896484375, 26.529916763305664 	loop_iteration: 19 	stick_event: list index out of range
+2023-11-02 00:18:34,762 Sensor_data(t,p,h): 20.27844320678711, 965.183349609375, 26.729141235351562 	loop_iteration: 20 	stick_event: list index out of range
+2023-11-02 00:18:35,780 Sensor_data(t,p,h): 20.204396118164063, 965.155029296875, 27.18050765991211 	loop_iteration: 21 	stick_event: list index out of range
+2023-11-02 00:18:36,798 Sensor_data(t,p,h): 20.167374481201172, 965.1533203125, 26.747817993164062 	loop_iteration: 22 	stick_event: list index out of range
+2023-11-02 00:18:37,819 Sensor_data(t,p,h): 20.24142156982422, 965.130859375, 26.42096710205078 	loop_iteration: 23 	stick_event: list index out of range
+2023-11-02 00:18:38,836 Sensor_data(t,p,h): 20.148861755371094, 965.13818359375, 26.638866424560547 	loop_iteration: 24 	stick_event: list index out of range
+2023-11-02 00:18:39,852 Sensor_data(t,p,h): 20.204396118164063, 965.14111328125, 26.3493709564209 	loop_iteration: 25 	stick_event: list index out of range
+2023-11-02 00:18:40,869 Sensor_data(t,p,h): 20.24142156982422, 965.158203125, 26.71980094909668 	loop_iteration: 26 	stick_event: list index out of range
+2023-11-02 00:18:41,887 Sensor_data(t,p,h): 20.22290884399414, 965.16845703125, 26.542367935180664 	loop_iteration: 27 	stick_event: list index out of range
+2023-11-02 00:18:42,906 Sensor_data(t,p,h): 20.204396118164063, 965.126708984375, 26.828752517700195 	loop_iteration: 28 	stick_event: list index out of range
+2023-11-02 00:18:43,925 Sensor_data(t,p,h): 20.24142156982422, 965.128173828125, 26.610851287841797 	loop_iteration: 29 	stick_event: list index out of range
+2023-11-02 00:18:44,944 Sensor_data(t,p,h): 20.111836303710938, 965.1474609375, 26.517465591430664 	loop_iteration: 30 	stick_event: list index out of range
+2023-11-02 00:18:45,968 Sensor_data(t,p,h): 20.22290884399414, 965.1318359375, 26.66999626159668 	loop_iteration: 31 	stick_event: list index out of range
+2023-11-02 00:18:46,991 Sensor_data(t,p,h): 20.25993048095703, 965.139404296875, 26.567270278930664 	loop_iteration: 32 	stick_event: list index out of range
+2023-11-02 00:18:48,013 Sensor_data(t,p,h): 20.27844320678711, 965.122314453125, 26.305789947509766 	loop_iteration: 33 	stick_event: list index out of range
+2023-11-02 00:18:49,034 Sensor_data(t,p,h): 20.167374481201172, 965.1455078125, 26.754043579101562 	loop_iteration: 34 	stick_event: list index out of range
+2023-11-02 00:18:50,057 Sensor_data(t,p,h): 20.111836303710938, 965.1494140625, 26.819414138793945 	loop_iteration: 35 	stick_event: list index out of range
+2023-11-02 00:18:51,075 Sensor_data(t,p,h): 20.22290884399414, 965.14599609375, 26.302677154541016 	loop_iteration: 36 	stick_event: list index out of range
+2023-11-02 00:18:52,094 Sensor_data(t,p,h): 20.204396118164063, 965.137451171875, 26.71980094909668 	loop_iteration: 37 	stick_event: list index out of range
+2023-11-02 00:18:53,116 Sensor_data(t,p,h): 20.185883392333984, 965.140380859375, 26.45520782470703 	loop_iteration: 38 	stick_event: list index out of range
+2023-11-02 00:18:54,136 Sensor_data(t,p,h): 20.371003021240234, 965.141357421875, 25.733020782470703 	loop_iteration: 39 	stick_event: list index out of range
+2023-11-02 00:18:55,153 Sensor_data(t,p,h): 20.24142156982422, 965.12646484375, 26.71980094909668 	loop_iteration: 40 	stick_event: list index out of range
+2023-11-02 00:18:56,171 Sensor_data(t,p,h): 20.371003021240234, 965.147705078125, 26.66688346862793 	loop_iteration: 41 	stick_event: list index out of range
+2023-11-02 00:18:57,201 Sensor_data(t,p,h): 20.204396118164063, 965.137939453125, 26.754043579101562 	loop_iteration: 42 	stick_event: list index out of range
+2023-11-02 00:18:58,239 Sensor_data(t,p,h): 20.204396118164063, 965.15380859375, 26.43341827392578 	loop_iteration: 43 	stick_event: list index out of range
+2023-11-02 00:18:59,264 Sensor_data(t,p,h): 20.093327392578125, 965.143310546875, 26.564157485961914 	loop_iteration: 44 	stick_event: list index out of range
+2023-11-02 00:19:00,296 Sensor_data(t,p,h): 20.111836303710938, 965.163330078125, 26.501901626586914 	loop_iteration: 45 	stick_event: list index out of range
+2023-11-02 00:19:01,321 Sensor_data(t,p,h): 20.111836303710938, 965.166748046875, 26.70423698425293 	loop_iteration: 46 	stick_event: list index out of range
+2023-11-02 00:19:02,344 Sensor_data(t,p,h): 20.074814666748047, 965.169677734375, 25.810842514038086 	loop_iteration: 47 	stick_event: list index out of range
+2023-11-02 00:19:03,363 Sensor_data(t,p,h): 20.204396118164063, 965.159912109375, 26.866106033325195 	loop_iteration: 48 	stick_event: list index out of range
+2023-11-02 00:19:04,389 Sensor_data(t,p,h): 20.148861755371094, 965.1630859375, 26.70112419128418 	loop_iteration: 49 	stick_event: list index out of range
+2023-11-02 00:19:05,407 Sensor_data(t,p,h): 20.185883392333984, 965.161376953125, 26.508127212524414 	loop_iteration: 50 	stick_event: list index out of range
+2023-11-02 00:19:06,432 Sensor_data(t,p,h): 20.167374481201172, 965.177490234375, 26.69489860534668 	loop_iteration: 51 	stick_event: list index out of range
+2023-11-02 00:19:07,450 Sensor_data(t,p,h): 20.22290884399414, 965.144287109375, 26.570383071899414 	loop_iteration: 52 	stick_event: list index out of range
+2023-11-02 00:19:08,472 Sensor_data(t,p,h): 20.130349029541016, 965.1611328125, 26.722915649414062 	loop_iteration: 53 	stick_event: list index out of range
+2023-11-02 00:19:09,492 Sensor_data(t,p,h): 20.111836303710938, 965.15673828125, 26.533029556274414 	loop_iteration: 54 	stick_event: list index out of range

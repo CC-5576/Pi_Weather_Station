@@ -79,16 +79,11 @@ def readings():
     value = CurrentReadings(temperature, pressure, humidity)
     return(value)
 
-def log():
+def log(stick_data):
     sensor_data = readings()
     time_value = time_values()
-    stick_data = sense.stick.get_events()
-    try:
-        stick_data = stick_data[0]
-    except Exception as error:
-        stick_data = error
-        pass
-    logger.warning("Sensor_data(t,p,h): {sensor_date.temperature}, {sensor_data.pressure}, {sensor_data.humidity} \tloop_iteration: {iteration_count} \tstick_event: {stick_data}")
+    logger.warning(f"Sensor_data(t,p,h): {sensor_data.temperature}, {sensor_data.pressure}, {sensor_data.humidity} \tloop_iteration: {iteration_count} \tstick_event: {stick_data}")
+    print(f"Sensor_data(t,p,h): {sensor_data.temperature}, {sensor_data.pressure}, {sensor_data.humidity} \tloop_iteration: {iteration_count} \tstick_event: {stick_data}")
 
         
 def time_output():
@@ -123,10 +118,8 @@ while True:
         if event[0].direction == "down":
             sensor_output()
             
-    except KeyboardInterrupt as e:
-        print(e)
-        break
     except Exception as e: # outputs the error message when an error state happens
+        event = e
         print(e)
 
     try:
@@ -135,7 +128,7 @@ while True:
     except Exception as e:
         print(e)
     
-    log()
+    log(event)
     movment_old = movment
     iteration_count += 1
     print(iteration_count)

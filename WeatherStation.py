@@ -1,6 +1,6 @@
 #from keyboard import is_pressed
 #from collections import namedtuple
-import logging
+import logging as log
 from time import sleep
 import numpy as np
 import screen_scrolling_testing as SST
@@ -11,17 +11,16 @@ except:
     CPU_temp = 60
 from file_of_greatness import system_check, days_of_the_week
 
-with open("iteration_count", "r") as current_iteration:
-    current_iteration = int(current_iteration.read())
-    with open("iteration_count", "w") as new_iteration:
-        new_iteration.write(str(current_iteration+1))
-        new_iteration.close()
+
+FORMAT = '%(asctime)s %(message)s'
+log.basicConfig(filename="WeatherStation.log", filemode="a", format=FORMAT)
+logger = log.getLogger('WeatherStation_log')
+logger.warning("start up: %s", 'STARTING')
+
 
 sense = system_check()
 
 ws = SST.word_scrolling
-
-filename = str(DT.date.today())+"_"+str(current_iteration+1)+"sensor_output.txt" #creates a new unique file name for every new run
 
 iteration_count = 0
 
@@ -80,11 +79,7 @@ def readings():
     value = CurrentReadings(temperature, pressure, humidity)
     return(value)
 
-with open(filename,"w") as sensor_output:
-        sensor_output.write("time,\t joy stick event,\t time_values (weekday,\t date(DD/MM/YYYY),\t time(HH:MM),\t sensor_data,\
-                            \t temperature,\t pressure,\t humidity,\t error), \t iteration")
-
-def sensor_output_file(iteration_count):
+def log():
     sensor_data = readings()
     time_value = time_values()
     stick_data = sense.stick.get_events()
@@ -93,11 +88,8 @@ def sensor_output_file(iteration_count):
     except Exception as error:
         stick_data = error
         pass
-    with open(filename,"a") as sensor_output:
-        sensor_output.write(time_value.full_time + "\t stick event\t " + stick_data + "\t time_values\t " + time_value.day +"\t"+ time_value.date +"\t"+ \
-                            time_value.time+"\t sensor_data \t" + sensor_data.temperature +"\t"+ sensor_data.pressure +"\t"+ sensor_data.humidity +"\t"+ \
-                            sensor_data.error +"\t"+ iteration_count)
-    return(0)
+    logger.warning("Sensor_data(t,p,h): {sensor_date.temperature}, {sensor_data.pressure}, {sensor_data.humidity} \tloop_iteration: {iteration_count} \tstick_event: {stick_data}")
+
         
 def time_output():
     time_value = time_values()
@@ -143,8 +135,8 @@ while True:
     except Exception as e:
         print(e)
     
+    log()
     movment_old = movment
     iteration_count += 1
-    sensor_output_file(iteration_count)
     print(iteration_count)
     sleep(1)

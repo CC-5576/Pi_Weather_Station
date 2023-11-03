@@ -5,10 +5,12 @@ from time import sleep
 import numpy as np
 import screen_scrolling_testing as SST
 import datetime as DT
+
 try:
     from gpiozero import CPUTemperature; CPU_temp = CPUTemperature().temperature
 except:
     CPU_temp = 60
+
 from file_of_greatness import system_check, days_of_the_week, file_iteration_count
 file_iteration_count = file_iteration_count()
 

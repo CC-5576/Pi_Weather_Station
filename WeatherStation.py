@@ -11,13 +11,10 @@ try:
 except:
     CPU_temp = 60
 
-from file_of_greatness import system_check, days_of_the_week, file_iteration_count
+from file_of_greatness import system_check, days_of_the_week, file_iteration_count, logger
 file_iteration_count = file_iteration_count()
+logger = logger()
 
-FORMAT = '%(asctime)s %(message)s'
-log.basicConfig(filename="WeatherStation.log", filemode="a", format=FORMAT)
-logger = log.getLogger('WeatherStation_log')
-logger.warning("start up: %s", 'STARTING')
 
 
 sense = system_check()

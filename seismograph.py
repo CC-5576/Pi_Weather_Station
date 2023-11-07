@@ -1,6 +1,7 @@
-from file_of_greatness import system_check
+from file_of_greatness import system_check, logger
 from time import sleep
 from math import log
+logger = logger()
 
 sense = system_check()
 
@@ -75,7 +76,13 @@ def seismograph(DATA_LENGTH, START_VALUE):
     low_peak_position = (x_low_peak_position + y_low_peak_position + z_low_peak_position)/3
     time_between_peaks = (high_peak_position-low_peak_position)*0.03
     print(time_between_peaks)
-    log_time = log((8*time_between_peaks), 10)
+    try:
+        print(len(str(log((8*time_between_peaks), 10))))
+        log_time = log((8*time_between_peaks), 10)
+    except Exception as e:
+        print(e)
+        logger.warning(f"line 79 seismograph: {e}")
+
     distance_from_source = (3 * log_time - 2.92)*(8/5)*10**2
 
     location_change = (x_high_peak**2+y_high_peak**2+z_high_peak**2)**0.5

@@ -1,20 +1,9 @@
 from time import sleep
 import numpy as np
 import json
-from file_of_greatness import system_check
+from file_of_greatness import system_check, logger
 
 sense = system_check()
-
-def test_setup():
-    """ensures that the dysplay is working correctly"""
-    sense.set_pixel(7,7,255,0,255)#x,y,R,G,B
-    sense.set_pixel(0,0,255,0,0)#X goes parallel to the usb ports and tangent to the GPIOs
-    sense.set_pixel(0,2,255,0,255)#Y goes along side the GPIO
-    sense.set_pixel(2,0,0,255,0)
-    print("test complete")
-    sleep(10)
-    print("test complete")
-
 
 RED = (0, 255, 0)
 BLUE = (0, 0, 255)
@@ -62,3 +51,17 @@ def word_scrolling(text):
         
         sense.set_pixels(flatten(matrix))
         sleep(0.05)
+
+
+def test_setup():
+    """ensures that the dysplay is working correctly"""
+    sense.set_pixel(7,7,255,0,255)#x,y,R,G,B
+    sense.set_pixel(0,0,255,0,0)#X goes parallel to the usb ports and tangent to the GPIOs
+    sense.set_pixel(0,2,255,0,255)#Y goes along side the GPIO
+    sense.set_pixel(2,0,0,255,0)
+    sleep(2)
+    word_scrolling("test underway ...")
+    sleep(2)
+    word_scrolling("... test complete")
+    print("test complete")
+    logger().warning("screen test performed")

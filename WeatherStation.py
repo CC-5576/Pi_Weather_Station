@@ -1,34 +1,33 @@
-#from keyboard import is_pressed
-#from collections import namedtuple
-import logging as log
+'''Ollie Criddle Pi Weather Station Project Main Page'''
+#imports
 from time import sleep
-import numpy as np
-import screen_scrolling_testing as SST
-import datetime as DT
+from screen_scrolling_testing import word_scrolling as ws, test_setup as ts # importing my screen scrolling code
+import datetime as DT # importing the datetime module
 
 try:
     from gpiozero import CPUTemperature; CPU_temp = CPUTemperature().temperature
 except:
     CPU_temp = 60
+#this code only works on the pi with the GPIO module so try and import it, if it fails then set the value CPU_temp to 60 (running temp for a pi CPU ish)
 
 from file_of_greatness import system_check, days_of_the_week, file_iteration_count, logger
 file_iteration_count = file_iteration_count()
-logger = logger()
-
-
-
 sense = system_check()
-
-ws = SST.word_scrolling
+#importing setting up constants that will be used later
 
 iteration_count = 0
-
 event_count = 0
-sleep(1)
+#setting up iteration count of this file and event counter for the trigger
 
-#ws("power on... testing 1 2 3")
+
+sleep(1)
+ts() #testing the screen outout
 
 class CurrentTime:
+    """returns the current time, date, day, full_time values in an object"""
+    '''used to create an object for ease of calling and pasing the new data,
+    including checks to see if present'''
+    #could expand to include type or format checking?
     def __init__(self, time, date, day, full_time):
         self.time = time
         self.day = day
@@ -46,6 +45,7 @@ class CurrentTime:
             self.error = "Invalid time object"
 
 def time_values():
+    '''collects the time values and uses the above class to generate and return an object containing them'''
     time_current = str(DT.datetime.now().time().hour) + ":"+ str(DT.datetime.now().time().minute)
     date_current = (str(DT.date.today().year)+ "/"+ str(DT.date.today().month)+ "/"+ str(DT.date.today().day))
     day_current = str(DT.date.today().weekday())
@@ -57,6 +57,9 @@ def time_values():
 
 class CurrentReadings:
     """returns the current temp, pressure, humidity readings in an object"""
+    '''used to create an object for ease of calling and pasing the new data,
+    including checks to see if present'''
+    #could expand to include type or format checking?
     def __init__(self, current_temp, current_pressure, current_humid):
         self.temperature = current_temp
         self.pressure = current_pressure
@@ -71,7 +74,8 @@ class CurrentReadings:
             self.humidity = 45
             self.error = "Invalid sensor data"
 
-def readings():
+def readings_TMP():
+    '''collects the time values and uses the above class to generate and return an object containing them'''
     temperature = CPU_temp - sense.get_temperature()
     pressure = sense.get_pressure()
     humidity = sense.get_humidity()
@@ -79,9 +83,8 @@ def readings():
     return(value)
 
 def log(stick_data):
-    sensor_data = readings()
-    time_value = time_values()
-    logger.warning(f"file_iteration: {file_iteration_count} \tSensor_data(t,p,h): {sensor_data.temperature}, {sensor_data.pressure}, {sensor_data.humidity} \tloop_iteration: {iteration_count} \tstick_event: {stick_data}")
+    sensor_data = readings_TMP()
+    logger().warning(f"file_iteration: {file_iteration_count} \tSensor_data(t,p,h): {sensor_data.temperature}, {sensor_data.pressure}, {sensor_data.humidity} \tloop_iteration: {iteration_count} \tstick_event: {stick_data}")
     print((f"file_iteration: {file_iteration_count} \tSensor_data(t,p,h): {sensor_data.temperature}, {sensor_data.pressure}, {sensor_data.humidity} \tloop_iteration: {iteration_count} \tstick_event: {stick_data}"))
 
         
@@ -95,7 +98,7 @@ def time_output():
     return(time_value.error)
 
 def sensor_output():
-    sensor_values = readings()
+    sensor_values = readings_TMP()
     ws("temperature " + str(int(sensor_values.temperature)))
     sleep(1)
     ws("pressure " + str(int(sensor_values.pressure)))

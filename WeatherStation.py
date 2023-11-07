@@ -4,13 +4,9 @@ from time import sleep
 from screen_scrolling_testing import word_scrolling as ws, test_setup as ts # importing my screen scrolling code
 import datetime as DT # importing the datetime module
 
-try:
-    from gpiozero import CPUTemperature; CPU_temp = CPUTemperature().temperature
-except:
-    CPU_temp = 60
-#this code only works on the pi with the GPIO module so try and import it, if it fails then set the value CPU_temp to 60 (running temp for a pi CPU ish)
 
-from file_of_greatness import system_check, days_of_the_week, file_iteration_count, logger
+
+from file_of_greatness import system_check, days_of_the_week, file_iteration_count, logger, CPU_temp
 file_iteration_count = file_iteration_count()
 sense = system_check()
 #importing setting up constants that will be used later
@@ -74,21 +70,23 @@ class CurrentReadings:
             self.humidity = 45
             self.error = "Invalid sensor data"
 
-def readings_TMP():
-    '''collects the time values and uses the above class to generate and return an object containing them'''
-    temperature = CPU_temp - sense.get_temperature()
+def readings_TPH():
+    '''Collects the Temperature, Pressure and Humidity and uses the above class to generate and return an object containing them'''
+    temperature = CPU_temp() - sense.get_temperature()
     pressure = sense.get_pressure()
     humidity = sense.get_humidity()
     value = CurrentReadings(temperature, pressure, humidity)
     return(value)
 
 def log(stick_data):
-    sensor_data = readings_TMP()
+    '''logs all current sensor readings as gathered by reading_TMP'''
+    sensor_data = readings_TPH()
     logger().warning(f"file_iteration: {file_iteration_count} \tSensor_data(t,p,h): {sensor_data.temperature}, {sensor_data.pressure}, {sensor_data.humidity} \tloop_iteration: {iteration_count} \tstick_event: {stick_data}")
     print((f"file_iteration: {file_iteration_count} \tSensor_data(t,p,h): {sensor_data.temperature}, {sensor_data.pressure}, {sensor_data.humidity} \tloop_iteration: {iteration_count} \tstick_event: {stick_data}"))
 
         
 def time_output():
+    '''Outputs the time values from the object time_values to the word scrolling module'''
     time_value = time_values()
     ws(time_value.day)
     sleep(1)
@@ -97,8 +95,10 @@ def time_output():
     ws(time_value.time)
     return(time_value.error)
 
+
 def sensor_output():
-    sensor_values = readings_TMP()
+    '''Outputs the temperature, pressure, humidity values from the object time_values to the word scrolling module'''
+    sensor_values = readings_TPH()
     ws("temperature " + str(int(sensor_values.temperature)))
     sleep(1)
     ws("pressure " + str(int(sensor_values.pressure)))

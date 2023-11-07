@@ -21,6 +21,8 @@ def seismograph(DATA_LENGTH, START_VALUE):
         xyz_data[i][0] = START_VALUE["x"] - sense.accelerometer_raw["x"]
         xyz_data[i][1] = START_VALUE["y"] - sense.accelerometer_raw["y"]
         xyz_data[i][2] = START_VALUE["z"] - sense.accelerometer_raw["z"]
+        
+
     
 
     x_high_peak = xyz_data[0][0]
@@ -81,14 +83,19 @@ def seismograph(DATA_LENGTH, START_VALUE):
         log_time = log((8*time_between_peaks), 10)
     except Exception as e:
         print(e)
-        logger.warning(f"line 79 seismograph: {e}")
+        logger.warning(f"line 79 seismograph: {e} \ttime_between_peaks = {time_between_peaks}")
+        log_time = 0
 
-    distance_from_source = (3 * log_time - 2.92)*(8/5)*10**2
+    distance_from_source = abs((3 * log_time - 2.92)*(8/5)*10**2) #abs returns positive value
 
     location_change = (x_high_peak**2+y_high_peak**2+z_high_peak**2)**0.5
 
-    richter_scale = (log((WEIGHT*location_change)*distance_from_source, 10)-11.8)/1.5
+    richter_scale = log((WEIGHT*location_change)*distance_from_source, 10)
+    richter_scale = (richter_scale-11.8)/1.5
 
-    return(richter_scale)
+    if richter_scale < 0:
+        return(0)
+    else:
+        return(richter_scale)
 
 print(seismograph(100, START_VALUE))

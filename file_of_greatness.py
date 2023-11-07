@@ -22,6 +22,19 @@ def system_check():
     Sense = SenseHat()
     return(Sense)
 
+def CPU_temp():
+    '''depending on the system it will either return 0 or '''
+    if "rpi" not in platform.release():
+        CPU_temp = 0
+    else:
+        try:
+            from gpiozero import CPUTemperature
+            CPU_temp = CPUTemperature().temperature
+        except:
+            CPU_temp = 0
+    
+    return(CPU_temp)
+
 days_of_the_week = {
     "6": "Sunday",
     "5": "Saturday",

@@ -33,9 +33,9 @@ days_of_the_week = {
 }
 
 def file_iteration_count():
-    with open("iteration_count", "r") as current_iteration:
+    with open("logs/iteration_count", "r") as current_iteration:
         current_iteration = int(current_iteration.read())
-        with open("iteration_count", "w") as new_iteration:
+        with open("logs/iteration_count", "w") as new_iteration:
             new_iteration.write(str(current_iteration+1))
     
     return(current_iteration)
@@ -43,7 +43,7 @@ def file_iteration_count():
 'loggin tool'
 def logger():
     FORMAT = '%(asctime)s %(message)s'
-    log.basicConfig(filename="WeatherStation.log", filemode="a", format=FORMAT)
-    logger = log.getLogger('WeatherStation_log')
+    log.basicConfig(filename="logs/WeatherStation.log", filemode="a", format=FORMAT)
+    logger = log.getLogger('logs/WeatherStation_log')
     logger.warning("start up: %s", 'STARTING')
     return(logger)

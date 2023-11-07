@@ -1,1 +1,0 @@
-time,	 joy stick event,	 time_values (weekday,	 date(DD/MM/YYYY),	 time(HH:MM),	 sensor_data,                            	 temperature,	 pressure,	 humidity,	 error), 	 iteration

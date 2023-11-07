@@ -272,3 +272,19 @@
 2023-11-02 00:38:39,435 file_iteration: 60 	Sensor_data(t,p,h): 24.03774069213867, 964.7607421875, 25.403057098388672 	loop_iteration: 111 	stick_event: list index out of range
 2023-11-02 00:38:40,451 file_iteration: 60 	Sensor_data(t,p,h): 24.056253417968747, 964.773193359375, 25.440410614013672 	loop_iteration: 112 	stick_event: list index out of range
 2023-11-02 00:38:41,473 file_iteration: 60 	Sensor_data(t,p,h): 24.13029669189453, 964.75732421875, 24.220165252685547 	loop_iteration: 113 	stick_event: list index out of range
+2023-11-07 00:55:24,503 start up: STARTING
+2023-11-07 00:55:25,674 file_iteration: 61 	Sensor_data(t,p,h): 18, 1013, 45 	loop_iteration: 0 	stick_event: list index out of range
+2023-11-07 00:55:26,691 file_iteration: 61 	Sensor_data(t,p,h): 24.133150970458985, 1006.228271484375, 29.284809112548828 	loop_iteration: 1 	stick_event: list index out of range
+2023-11-07 00:55:27,708 file_iteration: 61 	Sensor_data(t,p,h): 24.096129333496094, 1006.198486328125, 28.7867488861084 	loop_iteration: 2 	stick_event: list index out of range
+2023-11-07 00:55:28,725 file_iteration: 61 	Sensor_data(t,p,h): 24.17017642211914, 1006.209228515625, 29.213212966918945 	loop_iteration: 3 	stick_event: list index out of range
+2023-11-07 00:55:38,319 file_iteration: 61 	Sensor_data(t,p,h): 23.89250079345703, 1006.22705078125, 29.845125198364258 	loop_iteration: 4 	stick_event: [InputEvent(timestamp=1699318529.231634, direction='up', action='pressed'), InputEvent(timestamp=1699318529.391005, direction='up', action='released')]
+2023-11-07 00:55:39,340 file_iteration: 61 	Sensor_data(t,p,h): 24.022082244873047, 1006.213623046875, 29.297260284423828 	loop_iteration: 5 	stick_event: list index out of range
+2023-11-07 00:55:40,359 file_iteration: 61 	Sensor_data(t,p,h): 24.022082244873047, 1006.207275390625, 29.38753318786621 	loop_iteration: 6 	stick_event: list index out of range
+2023-11-07 00:55:55,371 file_iteration: 61 	Sensor_data(t,p,h): 24.151663696289063, 1006.2109375, 29.266130447387695 	loop_iteration: 7 	stick_event: [InputEvent(timestamp=1699318541.203564, direction='down', action='pressed'), InputEvent(timestamp=1699318541.333984, direction='down', action='released')]
+2023-11-07 00:55:56,390 file_iteration: 61 	Sensor_data(t,p,h): 23.94803515625, 1006.21142578125, 29.38753318786621 	loop_iteration: 8 	stick_event: list index out of range
+2023-11-07 00:55:57,409 file_iteration: 61 	Sensor_data(t,p,h): 24.059103881835938, 1006.206298828125, 27.890241622924805 	loop_iteration: 9 	stick_event: list index out of range
+2023-11-07 00:55:58,426 file_iteration: 61 	Sensor_data(t,p,h): 24.00356951904297, 1006.245361328125, 29.263017654418945 	loop_iteration: 10 	stick_event: list index out of range
+2023-11-07 00:55:59,443 file_iteration: 61 	Sensor_data(t,p,h): 24.00356951904297, 1006.221435546875, 30.42723274230957 	loop_iteration: 11 	stick_event: list index out of range
+2023-11-07 00:56:00,459 file_iteration: 61 	Sensor_data(t,p,h): 24.059103881835938, 1006.17724609375, 29.141616821289062 	loop_iteration: 12 	stick_event: list index out of range
+2023-11-07 00:56:01,479 file_iteration: 61 	Sensor_data(t,p,h): 24.00356951904297, 1006.212646484375, 28.668458938598633 	loop_iteration: 13 	stick_event: list index out of range
+2023-11-07 00:56:02,497 file_iteration: 61 	Sensor_data(t,p,h): 24.00356951904297, 1006.23681640625, 29.225664138793945 	loop_iteration: 14 	stick_event: list index out of range

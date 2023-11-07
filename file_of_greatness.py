@@ -2,6 +2,7 @@
 #this file will contain any small imports or general set up lines that are used throughout my project
 
 import platform
+import logging as log
 
 def system_check():
 
@@ -38,3 +39,11 @@ def file_iteration_count():
             new_iteration.write(str(current_iteration+1))
     
     return(current_iteration)
+
+'loggin tool'
+def logger():
+    FORMAT = '%(asctime)s %(message)s'
+    log.basicConfig(filename="WeatherStation.log", filemode="a", format=FORMAT)
+    logger = log.getLogger('WeatherStation_log')
+    logger.warning("start up: %s", 'STARTING')
+    return(logger)

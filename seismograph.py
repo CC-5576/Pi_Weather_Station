@@ -10,9 +10,8 @@ def setup():
     print("calibrated")
     return START_VALUE
 
-START_VALUE = setup()
-
-def seismograph(DATA_LENGTH, START_VALUE):
+def seismograph(DATA_LENGTH):
+    START_VALUE = setup()
     WEIGHT = 0.150 #in kg
 
 

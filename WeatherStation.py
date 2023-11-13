@@ -3,7 +3,7 @@
 from time import sleep
 from screen_scrolling_testing import word_scrolling as ws, test_setup as ts # importing my screen scrolling code
 import datetime as DT # importing the datetime module
-
+from seismograph import seismograph
 
 
 from file_of_greatness import system_check, days_of_the_week, file_iteration_count, logger, CPU_temp
@@ -127,6 +127,11 @@ while True:
     try:
         if movment["roll"] ==  movment_old["roll"]:
             print(movment["roll"])
+        quake_reading = seismograph(100)
+        if "str" in type(quake_reading):
+            print(quake_reading)
+        else:
+            ws(str(quake_reading))
     except Exception as e:
         print(e)
     

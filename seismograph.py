@@ -75,7 +75,7 @@ def seismograph(DATA_LENGTH):
     
     high_peak_position = (x_high_peak_position + y_high_peak_position + z_high_peak_position)/3
     low_peak_position = (x_low_peak_position + y_low_peak_position + z_low_peak_position)/3
-    time_between_peaks = (high_peak_position-low_peak_position)*0.03
+    time_between_peaks = (high_peak_position-low_peak_position)*0.1
     print(time_between_peaks)
     if time_between_peaks == 0:
         return ("no quake detected")

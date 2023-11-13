@@ -327,3 +327,14 @@
 2023-11-07 18:12:51,921 start up: STARTING
 2023-11-07 18:12:57,792 line 79 seismograph: math domain error 	time_between_peaks = 0.0
 2023-11-13 00:07:21,723 start up: STARTING
+2023-11-13 20:56:38,567 start up: STARTING
+2023-11-13 20:56:55,528 start up: STARTING
+2023-11-13 20:56:55,529 screen test performed
+2023-11-13 20:56:55,566 start up: STARTING
+2023-11-13 20:56:55,567 file_iteration: 64 	Sensor_data(t,p,h): -24.96875, 1013.01025390625, 45.1171875 	loop_iteration: 0 	stick_event: list index out of range
+2023-11-13 20:57:02,747 start up: STARTING
+2023-11-13 20:57:02,749 file_iteration: 64 	Sensor_data(t,p,h): -24.984375, 1012.989013671875, 45.10546875 	loop_iteration: 1 	stick_event: list index out of range
+2023-11-13 20:57:20,273 start up: STARTING
+2023-11-13 20:57:20,275 file_iteration: 64 	Sensor_data(t,p,h): -24.96875, 1013.00537109375, 45.40625 	loop_iteration: 2 	stick_event: [InputEvent(timestamp=1699909020.791654, direction='up', action='pressed'), InputEvent(timestamp=1699909020.912943, direction='up', action='released'), InputEvent(timestamp=1699909023.266457, direction='left', action='pressed'), InputEvent(timestamp=1699909023.339523, direction='left', action='released')]
+2023-11-13 20:57:27,024 start up: STARTING
+2023-11-13 20:57:27,024 file_iteration: 64 	Sensor_data(t,p,h): -25.03125, 1013.018798828125, 45.17578125 	loop_iteration: 3 	stick_event: list index out of range

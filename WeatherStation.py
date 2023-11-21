@@ -95,7 +95,6 @@ def time_output():
     ws(time_value.time)
     return(time_value.error)
 
-
 def sensor_output():
     '''Outputs the temperature, pressure, humidity values from the object time_values to the word scrolling module'''
     sensor_values = readings_TPH()
@@ -104,39 +103,3 @@ def sensor_output():
     ws("pressure " + str(int(sensor_values.pressure)))
     sleep(1)
     ws("humidity " + str(int(sensor_values.humidity)) + "%")
-
-
-while True:
-    event = sense.stick.get_events()
-    movment = sense.accelerometer
-    # if is_pressed("C"):
-    #     break
-    try: # because this is not always pressed it can and does error when no data input.
-
-        print(event[0].direction) # the variable event is a array what holds objects that can be called be calling... 
-        if event[0].direction == "up": # ..a point in the array and then the value wanted from the ditionary
-            time_output()
-        
-        if event[0].direction == "down":
-            sensor_output()
-            
-    except Exception as e: # outputs the error message when an error state happens
-        event = e
-        print(e)
-
-    try:
-        if movment["roll"] ==  movment_old["roll"]:
-            print(movment["roll"])
-        quake_reading = seismograph(100)
-        if "str" in type(quake_reading):
-            print(quake_reading)
-        else:
-            ws(str(quake_reading))
-    except Exception as e:
-        print(e)
-    
-    log(event)
-    movment_old = movment
-    iteration_count += 1
-    print(iteration_count)
-    sleep(1)

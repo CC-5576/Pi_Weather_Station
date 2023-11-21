@@ -5,7 +5,9 @@ my_data = [(1,2,3,4), (5,6,7,8)]
 
 def get_sensor_data():
     while True:
+        print("data")
         # get data, apppend, etc
+        sleep
         pass
         
 
@@ -23,7 +25,7 @@ def do_log():
 
 def handle_user_input(user_input):
     # do thing
-    print(user_input)
+    print("user_input")
     return
 
 sensor_thread = threading.Thread(target=get_sensor_data)

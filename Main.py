@@ -29,16 +29,6 @@ def get_sensor_data():
             event = e
             print(e)
 
-        try:
-            if movment["roll"] ==  movment_old["roll"]:
-                print(movment["roll"])
-            quake_reading = seismograph(100)
-            if "str" in type(quake_reading):
-                print(quake_reading)
-            else:
-                ws(str(quake_reading))
-        except Exception as e:
-            print(e)
         
         WS.log(event)
         movment_old = movment

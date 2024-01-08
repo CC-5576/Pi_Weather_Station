@@ -1,7 +1,7 @@
 '''Ollie Criddle Pi Weather Station Project Main Page'''
 #imports
 from time import sleep
-from screen_scrolling_testing import word_scrolling as ws, test_setup as ts # importing my screen scrolling code
+from screen_scrolling_testing import word_scrolling as word_scrolling, test_setup as ts # importing my screen scrolling code
 import datetime as DT # importing the datetime module
 from seismograph import seismograph
 
@@ -84,7 +84,7 @@ def readings_TPH():
 def log(stick_data):
     '''logs all current sensor readings as gathered by reading_TMP'''
     sensor_data = readings_TPH()
-    print("I run")
+    #print("I run")
     logger.warning(f"file_iteration: {file_iteration_count} \tSensor_data(t,p,h): {sensor_data.temperature}, {sensor_data.pressure}, {sensor_data.humidity} \tloop_iteration: {iteration_count} \tstick_event: {stick_data}")
     print((f"file_iteration: {file_iteration_count} \tSensor_data(t,p,h): {sensor_data.temperature}, {sensor_data.pressure}, {sensor_data.humidity} \tloop_iteration: {iteration_count} \tstick_event: {stick_data}"))
 
@@ -92,21 +92,21 @@ def log(stick_data):
 def time_output():
     '''Outputs the time values from the object time_values to the word scrolling module'''
     time_value = time_values()
-    ws(time_value.day)
+    word_scrolling(time_value.day)
     sleep(1)
-    ws(time_value.date)
+    word_scrolling(time_value.date)
     sleep(1)
-    ws(time_value.time)
+    word_scrolling(time_value.time)
     return(time_value.error)
 
 def sensor_output():
     '''Outputs the temperature, pressure, humidity values from the object time_values to the word scrolling module'''
     sensor_values = readings_TPH()
-    ws("temperature " + str(int(sensor_values.temperature)))
+    word_scrolling("temperature " + str(int(sensor_values.temperature)))
     sleep(1)
-    ws("pressure " + str(int(sensor_values.pressure)))
+    word_scrolling("pressure " + str(int(sensor_values.pressure)))
     sleep(1)
-    ws("humidity " + str(int(sensor_values.humidity)) + "%")
+    word_scrolling("humidity " + str(int(sensor_values.humidity)) + "%")
 
 def main(iteration_count):
     while True:
@@ -116,7 +116,7 @@ def main(iteration_count):
 
             try: # because this is not always pressed it can and does error when no data input.
 
-                print(event[0].direction) # the variable event is a array what holds objects that can be called be calling... 
+                #print(event[0].direction) # the variable event is a array what holds objects that can be called be calling... 
                 if event[0].direction == "up": # ..a point in the array and then the value wanted from the ditionary
                     time_output()
                 
@@ -125,14 +125,12 @@ def main(iteration_count):
                     
             except Exception as e: # outputs the error message when an error state happens
                 event = e
-                print(e)
+                #print(e)
 
             
             log(event)
             movment_old = movment
             iteration_count += 1
-            print(iteration_count)
+            #print(iteration_count)
             sleep(1)
             pass
-
-main(iteration_count)

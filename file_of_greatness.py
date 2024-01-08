@@ -57,6 +57,6 @@ def file_iteration_count():
 def logger():
     FORMAT = '%(asctime)s %(message)s'
     log.basicConfig(filename="logs/WeatherStation.log", filemode="a", format=FORMAT)
-    logger = log.getLogger('logs/WeatherStation_log')
+    logger = log.getLogger('logs/WeatherStation.log')
     logger.warning("start up: %s", 'STARTING')
     return(logger)

@@ -1,17 +1,12 @@
-'''Ollie Criddle, Threading for main code'''
-
 import threading
 from time import sleep
-import WeatherStation as WS
-from screen_scrolling_testing import word_scrolling as ws
-from seismograph import seismograph
-from file_of_greatness import system_check, file_iteration_count
-sense = system_check()
-iteration = 0
 
+my_data = [(), ()]
 
 def get_sensor_data():
-    WS.main()
+    while True:
+        my_data []
+        pass
         
 
 def do_check():
@@ -28,7 +23,7 @@ def do_log():
 
 def handle_user_input(user_input):
     # do thing
-    print("user_input")
+    print(user_input)
     return
 
 sensor_thread = threading.Thread(target=get_sensor_data)

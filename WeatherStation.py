@@ -9,6 +9,9 @@ from seismograph import seismograph
 from file_of_greatness import system_check, days_of_the_week, file_iteration_count, logger, CPU_temp
 file_iteration_count = file_iteration_count()
 sense = system_check()
+print("why")
+#logger()
+logger = logger()
 #importing setting up constants that will be used later
 
 iteration_count = 0
@@ -17,7 +20,7 @@ event_count = 0
 
 
 sleep(1)
-ts() #testing the screen outout
+#ts() #testing the screen outout
 
 class CurrentTime:
     """returns the current time, date, day, full_time values in an object"""
@@ -81,7 +84,8 @@ def readings_TPH():
 def log(stick_data):
     '''logs all current sensor readings as gathered by reading_TMP'''
     sensor_data = readings_TPH()
-    logger().warning(f"file_iteration: {file_iteration_count} \tSensor_data(t,p,h): {sensor_data.temperature}, {sensor_data.pressure}, {sensor_data.humidity} \tloop_iteration: {iteration_count} \tstick_event: {stick_data}")
+    print("I run")
+    logger.warning(f"file_iteration: {file_iteration_count} \tSensor_data(t,p,h): {sensor_data.temperature}, {sensor_data.pressure}, {sensor_data.humidity} \tloop_iteration: {iteration_count} \tstick_event: {stick_data}")
     print((f"file_iteration: {file_iteration_count} \tSensor_data(t,p,h): {sensor_data.temperature}, {sensor_data.pressure}, {sensor_data.humidity} \tloop_iteration: {iteration_count} \tstick_event: {stick_data}"))
 
         
@@ -103,3 +107,32 @@ def sensor_output():
     ws("pressure " + str(int(sensor_values.pressure)))
     sleep(1)
     ws("humidity " + str(int(sensor_values.humidity)) + "%")
+
+def main(iteration_count):
+    while True:
+            # get data, apppend, etc
+            event = sense.stick.get_events()
+            movment = sense.accelerometer
+
+            try: # because this is not always pressed it can and does error when no data input.
+
+                print(event[0].direction) # the variable event is a array what holds objects that can be called be calling... 
+                if event[0].direction == "up": # ..a point in the array and then the value wanted from the ditionary
+                    time_output()
+                
+                if event[0].direction == "down":
+                    sensor_output()
+                    
+            except Exception as e: # outputs the error message when an error state happens
+                event = e
+                print(e)
+
+            
+            log(event)
+            movment_old = movment
+            iteration_count += 1
+            print(iteration_count)
+            sleep(1)
+            pass
+
+main(iteration_count)

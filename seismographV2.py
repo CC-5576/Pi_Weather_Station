@@ -2,6 +2,7 @@ from file_of_greatness import system_check, logger, timeSubtraction as TS
 from time import sleep, time
 import datetime
 from math import log
+from letters_json_write import letters
 
 logger = logger()
 
@@ -23,31 +24,33 @@ def mean(X,Y,Z):
     current = (X+Y+Z)/3
     return(current)
 
-def data_collection():
-    for y in range(10):
-        data = [[],[]]
-        with open("logs/HistoricalQuakeData.log", "a") as logs:
-            for x in range(100*5):
-                data[0].append(sense.accelerometer_raw["x"])
-                data[1].append(datetime.datetime.now().time())
+def data_collection(data_length = 7000, iterations = 1, START_VALUE = setup()):
+    data = []
+    for y in range(iterations):
+        data = []
+        with open("logs/2024-01-21QuakeTrainingData.log", "a") as logs:
+            for x in range(data_length):
+                data.append([mean(START_VALUE["x"] - sense.accelerometer_raw["x"],
+                START_VALUE["y"] - sense.accelerometer_raw["y"],
+                START_VALUE["z"] - sense.accelerometer_raw["z"])
+                ,datetime.datetime.now().time()])
             logs.write(str(data))
             logs.close()
-        print(data[1][0]<data[1][499])
-        print(TS(data[1][0],data[1][499]))
-        return(data)
+        print(data[0][1]<data[data_length-1][1])
+        print(TS(data[0][1],data[data_length-1][1]))
+    
+    print("done")
+    return(data)
 
-def seismograph(START_VALUE = setup(), DATA_LENGTH = 7000):
-    WEIGHT = 0.500 #in kg
-    xyz_avg_data = []
-    for i in range(0, DATA_LENGTH):
-        xyz_avg_data.append([mean(START_VALUE["x"] - sense.accelerometer_raw["x"],
-        START_VALUE["y"] - sense.accelerometer_raw["y"],
-        START_VALUE["z"] - sense.accelerometer_raw["z"])
-        ,datetime.datetime.now().time()])
+def seismograph(DATA_LENGTH = 7000, START_VALUE = setup()):
+    WEIGHT = 0.125 #in kg
+    print("started")
+    xyz_avg_data = data_collection(DATA_LENGTH,1,START_VALUE)
+    
     print("data collected")
 
-    High_peak = []; High_peak.append(xyz_avg_data[0][0])
-    Low_peak = []; Low_peak.append(xyz_avg_data[0][0])
+    High_peak = xyz_avg_data[0]
+    Low_peak = xyz_avg_data[0]
     Low_peak_found = False
     High_peak_position = 0
 
@@ -56,7 +59,7 @@ def seismograph(START_VALUE = setup(), DATA_LENGTH = 7000):
             High_peak = xyz_avg_data[i]
             High_peak_position = i
 
-    for i in range(High_peak_position-1, DATA_LENGTH):
+    for i in range(High_peak_position+1, DATA_LENGTH):
         if Low_peak_found == False:
             if Low_peak[0]**2 < xyz_avg_data[i][0]**2:
                 Low_peak[0] = xyz_avg_data[i][0]
@@ -89,11 +92,9 @@ def seismograph(START_VALUE = setup(), DATA_LENGTH = 7000):
     location_change = (High_peak[0]**2)**0.5
 
     richter_scale = log((WEIGHT*location_change)*distance_from_source, 10)
-    richter_scale = (richter_scale-11.8)/1.5
+    richter_scale = abs((richter_scale-4.4)/1.5)
 
     if richter_scale < 0:
         return(0)
     else:
         return(richter_scale)
-    
-seismograph()

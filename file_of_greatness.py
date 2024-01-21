@@ -1,8 +1,8 @@
 #ollie Criddle 30/10/2023
 #this file will contain any small imports or general set up lines that are used throughout my project
-
 import platform
 import logging as log
+import datetime
 
 def system_check():
 
@@ -60,3 +60,34 @@ def logger():
     logger = log.getLogger('logs/WeatherStation.log')
     logger.warning("start up: %s", 'STARTING')
     return(logger)
+
+
+def timeSubtraction(older, newer):
+        """using the datetime.time() format, this function will subtract the two 
+        times to output a positive number always subtracting the earlier time"""
+        #checks that the newer time is infact the newer time (issues would arrise if the quake happened as the date changes, 
+        #this could be fixed by changing it to use the datetime format rather than just time, or by using epoc time)
+        if older > newer:
+            tempTime = older
+            older = newer
+            newer = tempTime
+
+        #turns the given data into microseconds
+        oldtime = (((older.hour*60+older.minute)*60+older.second)*(10**6)+older.microsecond)
+        newtime = (((newer.hour*60+newer.minute)*60+newer.second)*(10**6)+newer.microsecond)
+
+        old = newtime-oldtime
+
+        #changes the time back into hours to turn it back into the datetime.time() format
+        old = old/(60*60*10**6)
+        hours = int(old)
+
+        old = (old - hours)*60
+        minutes = int(old)
+
+        old = (old-minutes)*60
+        seconds = int(old)
+
+        old = (old-seconds) * (10**6)
+        microseconds = int(old)
+        return(datetime.time(hours, minutes, seconds, microseconds))

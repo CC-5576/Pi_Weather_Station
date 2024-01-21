@@ -3,7 +3,7 @@
 from time import sleep
 from screen_scrolling_testing import word_scrolling as word_scrolling, test_setup as ts # importing my screen scrolling code
 import datetime as DT # importing the datetime module
-from seismograph import seismograph
+from seismographV2 import seismograph
 
 
 from file_of_greatness import system_check, days_of_the_week, file_iteration_count, logger, CPU_temp

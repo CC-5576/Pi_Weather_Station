@@ -28,9 +28,8 @@ ALL_CLEAR = np.full((8,8,3),clear)
 matrix = ALL_CLEAR.copy() #copys the data in the memory location assosiated with the all_blue veriable
 
 
-def word_scrolling(text):
+def word_scrolling(text, FrameRate = 10):
     word_list = ALL_CLEAR.copy()#np.full((8, 8, 3), RED)
-
     for character in text:
         try:
             word_list = np.append(word_list, letters[character], axis=1)
@@ -50,7 +49,7 @@ def word_scrolling(text):
             matrix[physical_column, :] = word_list[:, 7 - physical_column + frame]
         
         sense.set_pixels(flatten(matrix))
-        sleep(0.05)
+        sleep(1/FrameRate)
 
 
 def test_setup():

@@ -1269,3 +1269,57 @@
 2024-01-08 23:35:35,623 file_iteration: 97 	Sensor_data(t,p,h): 19.903940979003906, 1032.18603515625, 24.341567993164062 	loop_iteration: 0 	stick_event: list index out of range
 2024-01-08 23:35:36,662 file_iteration: 97 	Sensor_data(t,p,h): 20.896453704833988, 1032.19140625, 24.444292068481445 	loop_iteration: 0 	stick_event: list index out of range
 2024-01-08 23:35:37,698 file_iteration: 97 	Sensor_data(t,p,h): 21.346428253173826, 1032.188232421875, 24.27619743347168 	loop_iteration: 0 	stick_event: list index out of range
+2024-01-20 14:09:22,340 start up: STARTING
+2024-01-20 14:10:10,746 start up: STARTING
+2024-01-20 14:10:33,413 start up: STARTING
+2024-01-20 14:25:10,305 start up: STARTING
+2024-01-20 14:25:33,735 start up: STARTING
+2024-01-20 15:16:34,113 start up: STARTING
+2024-01-20 15:17:46,467 start up: STARTING
+2024-01-20 15:24:24,102 start up: STARTING
+2024-01-20 15:24:44,108 start up: STARTING
+2024-01-20 15:24:56,880 start up: STARTING
+2024-01-20 15:25:12,756 start up: STARTING
+2024-01-20 15:25:46,775 start up: STARTING
+2024-01-20 16:07:42,722 start up: STARTING
+2024-01-20 16:37:14,544 start up: STARTING
+2024-01-20 16:37:41,170 start up: STARTING
+2024-01-20 16:39:42,960 start up: STARTING
+2024-01-20 16:41:49,395 start up: STARTING
+2024-01-20 16:43:46,631 start up: STARTING
+2024-01-20 21:03:44,453 start up: STARTING
+2024-01-20 21:12:29,919 start up: STARTING
+2024-01-20 21:12:49,493 start up: STARTING
+2024-01-20 21:15:25,206 start up: STARTING
+2024-01-21 00:11:56,331 start up: STARTING
+2024-01-21 00:12:31,947 start up: STARTING
+2024-01-21 00:14:52,099 start up: STARTING
+2024-01-21 00:14:56,718 start up: STARTING
+2024-01-21 00:14:57,749 start up: STARTING
+2024-01-21 00:16:51,391 start up: STARTING
+2024-01-21 00:16:56,317 start up: STARTING
+2024-01-21 00:16:57,342 start up: STARTING
+2024-01-21 00:19:08,354 start up: STARTING
+2024-01-21 00:19:13,020 start up: STARTING
+2024-01-21 00:19:14,044 start up: STARTING
+2024-01-21 00:19:15,124 file_iteration: 100 	Sensor_data(t,p,h): 18, 1013, 45 	loop_iteration: 0 	stick_event: list index out of range
+2024-01-21 00:19:16,158 file_iteration: 100 	Sensor_data(t,p,h): 21.82204040527344, 1010.329345703125, 24.148569107055664 	loop_iteration: 0 	stick_event: list index out of range
+2024-01-21 00:19:17,190 file_iteration: 100 	Sensor_data(t,p,h): 21.557177856445314, 1010.331298828125, 24.57192039489746 	loop_iteration: 0 	stick_event: list index out of range
+2024-01-21 00:19:54,759 start up: STARTING
+2024-01-21 00:19:59,521 start up: STARTING
+2024-01-21 00:20:00,544 start up: STARTING
+2024-01-21 00:20:01,794 file_iteration: 101 	Sensor_data(t,p,h): 24.029203308105465, 1010.32568359375, 23.23961067199707 	loop_iteration: 0 	stick_event: list index out of range
+2024-01-21 00:20:02,816 file_iteration: 101 	Sensor_data(t,p,h): 23.89962185668945, 1010.3310546875, 24.06763458251953 	loop_iteration: 0 	stick_event: list index out of range
+2024-01-21 00:21:53,962 start up: STARTING
+2024-01-21 00:21:58,839 start up: STARTING
+2024-01-21 00:21:59,865 start up: STARTING
+2024-01-21 00:22:00,909 file_iteration: 102 	Sensor_data(t,p,h): 21.63122494506836, 1010.313720703125, 24.03961944580078 	loop_iteration: 0 	stick_event: list index out of range
+2024-01-21 00:22:01,947 file_iteration: 102 	Sensor_data(t,p,h): 21.03315621948242, 1010.291748046875, 23.090192794799805 	loop_iteration: 0 	stick_event: list index out of range
+2024-01-21 00:22:02,973 file_iteration: 102 	Sensor_data(t,p,h): 21.03315621948242, 1010.24951171875, 22.259056091308594 	loop_iteration: 0 	stick_event: list index out of range
+2024-01-21 00:25:49,734 start up: STARTING
+2024-01-21 00:29:27,100 start up: STARTING
+2024-01-21 00:30:02,488 start up: STARTING
+2024-01-21 00:44:15,332 start up: STARTING
+2024-01-21 00:45:47,734 start up: STARTING
+2024-01-21 00:55:58,897 start up: STARTING
+2024-01-21 01:07:36,088 start up: STARTING

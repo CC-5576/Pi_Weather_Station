@@ -107,9 +107,9 @@ backgroundNoise_Thread = threading.Thread(target=backgroundNoise)
 user_controls = threading.Thread(target=user_input)
 output_thread = threading.Thread(target=screenOutput)
 
-user_controls.start()
 backgroundNoise_Thread.start()
 maths_thread.start()
 output_thread.start()
+user_controls.start()
 
 print("please start")

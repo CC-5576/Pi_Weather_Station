@@ -1,15 +1,12 @@
 '''Ollie Criddle Pi Weather Station Project Main Page'''
 #imports
 import platform
-from time import sleep
-from screen_scrolling_testing import word_scrolling # importing my screen scrolling code
 from CommonImports import system_check, logger
 import datetime
 import math
 
 sensorDataLog = logger("logs/WeatherStation/Sensors.log")
 sense = system_check()
-print("why")
 
 #importing setting up constants that will be used later
 
@@ -116,56 +113,40 @@ def log(stick_data):
 def time_output():
     '''Outputs the time values from the object time_values to the word scrolling module'''
     time_value = time_values()
-    word_scrolling(time_value.day)
-    sleep(1)
-    word_scrolling(time_value.date)
-    sleep(1)
-    word_scrolling(time_value.time)
-    return(time_value.error)
+    return(time_value.day + "    " + time_value.date + "    " + time_value.time)
 
 def sensor_output():
     '''Outputs the temperature, pressure, humidity values from the object time_values to the word scrolling module'''
     sensor_values = readings_TPH()
-    word_scrolling("temperature " + str(int(sensor_values.temperature)), 15)
-    sleep(1)
-    word_scrolling("pressure " + str(int(sensor_values.pressure)), 15)
-    sleep(1)
-    word_scrolling("humidity " + str(int(sensor_values.humidity)) + "%", 15)
+    return("temperature " + str(int(sensor_values.temperature)) + "    " + "pressure " + str(int(sensor_values.pressure)) + "    " + "humidity " + str(int(sensor_values.humidity)) + "%")
 
-def main():
-    iteration_count = 0
-    while True:
-            # get data, apppend, etc
-            event = sense.stick.get_events()
+def main(iteration_count = 0):
+    # get data, apppend, etc
+    event = sense.stick.get_events()
 
-            try: # because this is not always pressed it can and does error when no data input.
+    try: # because this is not always pressed it can and does error when no data input.
 
-                if readings_TPH().temperature > 20:
-                    word_scrolling("WARNING, HIGH TEMPERATURE")
-                
-                if readings_TPH().temperature < 5:
-                    word_scrolling("WARNING, LOW TEMPERATURE")
-                
-                #print(event[0].direction) # the variable event is a array what holds objects that can be called be calling... 
-                if event[0].direction == "up": # ..a point in the array and then the value wanted from the ditionary
-                    time_output()
-                
-                if event[0].direction == "down":
-                    sensor_output()
+        values = readings_TPH()
+        if values.temperature > 30:
+            return("warning, high temperature")
+        
+        if values.temperature < 5:
+            return("warning, low temperature")
+        
+        #print(event[0].direction) # the variable event is a array what holds objects that can be called be calling... 
+        if event[0].direction == "up": # ..a point in the array and then the value wanted from the ditionary
+            return(time_output())
+        
+        if event[0].direction == "down":
+            return(sensor_output())
 
-                if event[0].direction == "left":
-                    values = readings_TPH()
-                    word_scrolling("Dewpoint:" + str(values.dewpoint), 15)
-                    word_scrolling("Heat Index:" + str(values.heatindex), 10)
-                
-                iteration_count = 0
-                    
-
-            except Exception as e: # outputs the error message when an error state happens, this will heppen everytime the toggle is not moved as we are looking for a state that has not happend
-                event = e
-
+        if event[0].direction == "left":
+            return("Dewpoint:" + str(values.dewpoint) + "     Heat Index:" + str(values.heatindex))
             
-            if iteration_count%10 == 0:
-                log(event)
-            iteration_count += 1
-            sleep(1)
+    except Exception as e: # outputs the error message when an error state happens, this will heppen everytime the toggle is not moved as we are looking for a state that has not happend
+        event = e
+
+    if iteration_count%10 == 0:
+        log(event)
+    iteration_count += 1
+    pass

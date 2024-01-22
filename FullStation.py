@@ -8,8 +8,6 @@ from seismographV2 import seismograph
 from CommonImports import system_check, logger
 from numpy import mean
 
-start = False
-textOut = False
 iterations = 0
 debugLog = logger("logs/FullStations/Debug.log")
 seismicLog = logger("logs/FullStation/seismicReadings.log")
@@ -19,8 +17,7 @@ backgroundNoiseValue = 0
 backgroundNoiseValuesXYZ = {
     "x":0,
     "y":0,
-    "z":0,
-    "i":0
+    "z":0
 }
 
 DATA_LENGTH = 100
@@ -60,9 +57,6 @@ def user_input():
 
 
 def seismograph_acctivator():
-    while start == False:
-        pass
-
     print("activator started")
     messageList.append("activator started")
     while True:
@@ -78,35 +72,30 @@ def seismograph_acctivator():
 
 def backgroundNoise():
     print("background started")
-    messageList.append("background started")
-    while True:
-        newData = []
-        newXYZ = [[],[],[]]
-        for i in range(1000):
-            newData.append(mean([sense.accelerometer_raw["x"], sense.accelerometer_raw["y"], sense.accelerometer_raw["z"]]))
-            newXYZ[0].append(sense.accelerometer_raw["x"])
-            newXYZ[1].append(sense.accelerometer_raw["y"])
-            newXYZ[2].append(sense.accelerometer_raw["z"])
 
-        backgroundNoiseValue = mean(newData)
-        backgroundNoiseValuesXYZ["x"] = mean(newXYZ[0])
-        backgroundNoiseValuesXYZ["y"] = mean(newXYZ[1])
-        backgroundNoiseValuesXYZ["z"] = mean(newXYZ[2])
+    newData = []
+    newXYZ = [[],[],[]]
+    for i in range(1000):
+        newData.append(mean([sense.accelerometer_raw["x"], sense.accelerometer_raw["y"], sense.accelerometer_raw["z"]]))
+        newXYZ[0].append(sense.accelerometer_raw["x"])
+        newXYZ[1].append(sense.accelerometer_raw["y"])
+        newXYZ[2].append(sense.accelerometer_raw["z"])
 
-        start = True
-        if backgroundNoiseValuesXYZ["i"]%50 == 0:
-            seismicLog.warning(f"background noise: {backgroundNoiseValuesXYZ}")
-        
-        backgroundNoiseValuesXYZ["i"] += 1
-        sleep(60)
+    backgroundNoiseValue = mean(newData)
+    backgroundNoiseValuesXYZ["x"] = mean(newXYZ[0])
+    backgroundNoiseValuesXYZ["y"] = mean(newXYZ[1])
+    backgroundNoiseValuesXYZ["z"] = mean(newXYZ[2])
+
+    seismicLog.warning(f"background noise: {backgroundNoiseValuesXYZ}")
+    
 
 
 maths_thread = threading.Thread(target=seismograph_acctivator)
-backgroundNoise_Thread = threading.Thread(target=backgroundNoise)
 user_controls = threading.Thread(target=user_input)
 output_thread = threading.Thread(target=screenOutput)
 
-backgroundNoise_Thread.start()
+backgroundNoise()
+
 maths_thread.start()
 output_thread.start()
 user_controls.start()

@@ -113,12 +113,12 @@ def log(stick_data):
 def time_output():
     '''Outputs the time values from the object time_values to the word scrolling module'''
     time_value = time_values()
-    return(time_value.day + "    " + time_value.date + "    " + time_value.time)
+    return(time_value.day + " " + time_value.date + " " + time_value.time)
 
 def sensor_output():
     '''Outputs the temperature, pressure, humidity values from the object time_values to the word scrolling module'''
     sensor_values = readings_TPH()
-    return("temperature " + str(int(sensor_values.temperature)) + "    " + "pressure " + str(int(sensor_values.pressure)) + "    " + "humidity " + str(int(sensor_values.humidity)) + "%")
+    return("temperature " + str(int(sensor_values.temperature)) + " " + "pressure " + str(int(sensor_values.pressure)) + " " + "humidity " + str(int(sensor_values.humidity)) + "%")
 
 def main(iteration_count = 0):
     # get data, apppend, etc
@@ -128,10 +128,10 @@ def main(iteration_count = 0):
 
         values = readings_TPH()
         if values.temperature > 30:
-            return("warning, high temperature")
+            return("warning, high temperature: " + values.temperature)
         
         if values.temperature < 5:
-            return("warning, low temperature")
+            return("warning, low temperature: " + values.temperature)
         
         #print(event[0].direction) # the variable event is a array what holds objects that can be called be calling... 
         if event[0].direction == "up": # ..a point in the array and then the value wanted from the ditionary
@@ -141,7 +141,7 @@ def main(iteration_count = 0):
             return(sensor_output())
 
         if event[0].direction == "left":
-            return("Dewpoint:" + str(values.dewpoint) + "     Heat Index:" + str(values.heatindex))
+            return("Dewpoint:" + str(values.dewpoint) + "  Heat Index:" + str(values.heatindex))
             
     except Exception as e: # outputs the error message when an error state happens, this will heppen everytime the toggle is not moved as we are looking for a state that has not happend
         event = e

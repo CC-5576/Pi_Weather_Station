@@ -12,6 +12,7 @@ iterations = 0
 debugLog = logger("logs/FullStations/Debug.log")
 seismicLog = logger("logs/FullStation/seismicReadings.log")
 
+
 sense = system_check()
 backgroundNoiseValue = 0
 backgroundNoiseValuesXYZ = {
@@ -19,6 +20,7 @@ backgroundNoiseValuesXYZ = {
     "y":0,
     "z":0
 }
+SD = 0
 
 DATA_LENGTH = 100
 x_data = [0]*DATA_LENGTH
@@ -60,7 +62,7 @@ def seismograph_acctivator():
     print("activator started")
     messageList.append("activator started")
     while True:
-        if mean([sense.accelerometer_raw["x"], sense.accelerometer_raw["y"], sense.accelerometer_raw["z"]]) > (backgroundNoiseValue*1.5):
+        if mean([sense.accelerometer_raw["x"], sense.accelerometer_raw["y"], sense.accelerometer_raw["z"]]) > (SD*4):
             richter_scale = seismograph(7000, backgroundNoiseValuesXYZ)
             if richter_scale != 0:
                 if richter_scale != "no quake detected":
@@ -75,11 +77,15 @@ def backgroundNoise():
 
     newData = []
     newXYZ = [[],[],[]]
-    for i in range(1000):
+    dataLength = 500
+    for i in range(dataLength):
         newData.append(mean([sense.accelerometer_raw["x"], sense.accelerometer_raw["y"], sense.accelerometer_raw["z"]]))
         newXYZ[0].append(sense.accelerometer_raw["x"])
         newXYZ[1].append(sense.accelerometer_raw["y"])
         newXYZ[2].append(sense.accelerometer_raw["z"])
+
+    global SD
+    SD = ((max(newData) - min(newData))**2/dataLength)**0.5
 
     backgroundNoiseValue = mean(newData)
     backgroundNoiseValuesXYZ["x"] = mean(newXYZ[0])

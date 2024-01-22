@@ -806,3 +806,46 @@
 2024-01-22 05:32:23,315 Sensor_data(t,p,h,HI,DP): 26.845826599121096, 1003.55810546875, 27.01863670349121, 26.215024966811836, 6.298750770863197 	loop_iteration: 0 	stick_event: list index out of range 	 CPU_temp: 62.322
 2024-01-22 05:32:34,179 Sensor_data(t,p,h,HI,DP): 26.845826599121096, 1003.46044921875, 27.999191284179688, 26.2500788154458, 6.816030664117744 	loop_iteration: 0 	stick_event: list index out of range 	 CPU_temp: 62.809
 2024-01-22 05:32:45,370 Sensor_data(t,p,h,HI,DP): 25.705223510742186, 1003.617919921875, 26.305789947509766, 25.56261759546447, 4.944897533913119 	loop_iteration: 0 	stick_event: list index out of range 	 CPU_temp: 61.348
+2024-01-22 14:27:51,789 start up: STARTING
+2024-01-22 14:27:52,752 start up: STARTING
+2024-01-22 14:27:52,884 start up: STARTING
+2024-01-22 14:27:52,886 start up: STARTING
+2024-01-22 14:28:03,120 start up: STARTING
+2024-01-22 14:28:03,121 start up: STARTING
+2024-01-22 14:28:09,004 Sensor_data(t,p,h,HI,DP): 17.799309417724608, 1011.48779296875, 31.681718826293945, 25.225571263079818, 0.7659922323765106 	loop_iteration: 0 	stick_event: list index out of range 	 CPU_temp: 49.173
+2024-01-22 14:28:31,562 Sensor_data(t,p,h,HI,DP): 19.16774960327148, 1011.654296875, 32.226470947265625, 24.889905338668605, 2.195734029760402 	loop_iteration: 0 	stick_event: list index out of range 	 CPU_temp: 50.147
+2024-01-22 14:28:42,586 Sensor_data(t,p,h,HI,DP): 19.395586700439452, 1011.560546875, 32.403907775878906, 24.858547806703356, 2.4714047405909767 	loop_iteration: 0 	stick_event: list index out of range 	 CPU_temp: 51.121
+2024-01-22 14:28:53,782 Sensor_data(t,p,h,HI,DP): 21.39912106323242, 1011.656494140625, 31.893394470214844, 24.640106360095206, 3.992741569047272 	loop_iteration: 0 	stick_event: list index out of range 	 CPU_temp: 53.556
+2024-01-22 14:29:04,692 Sensor_data(t,p,h,HI,DP): 20.314052337646487, 1011.67919921875, 31.750202178955078, 24.665078615086994, 2.985097824423369 	loop_iteration: 0 	stick_event: list index out of range 	 CPU_temp: 53.069
+2024-01-22 14:29:16,445 Sensor_data(t,p,h,HI,DP): 21.325073974609374, 1011.649169921875, 31.1929988861084, 24.592681452224188, 3.613435387139074 	loop_iteration: 0 	stick_event: [InputEvent(timestamp=1705933755.022069, direction='right', action='held'), InputEvent(timestamp=1705933755.062084, direction='right', action='held'), InputEvent(timestamp=1705933755.102126, direction='right', action='held'), InputEvent(timestamp=1705933755.142088, direction='right', action='held'), InputEvent(timestamp=1705933755.18213, direction='right', action='held'), InputEvent(timestamp=1705933755.222095, direction='right', action='held'), InputEvent(timestamp=1705933755.262071, direction='right', action='held'), InputEvent(timestamp=1705933755.302057, direction='right', action='held'), InputEvent(timestamp=1705933755.314101, direction='right', action='released')] 	 CPU_temp: 55.504
+2024-01-22 14:29:38,836 Sensor_data(t,p,h,HI,DP): 21.836282531738284, 1011.64111328125, 31.326852798461914, 24.629002666577573, 4.11784359914603 	loop_iteration: 0 	stick_event: list index out of range 	 CPU_temp: 55.017
+2024-01-22 14:29:49,731 Sensor_data(t,p,h,HI,DP): 21.836282531738284, 1011.687255859375, 30.218669891357422, 24.560856456227775, 3.60672682137996 	loop_iteration: 0 	stick_event: list index out of range 	 CPU_temp: 55.017
+2024-01-22 14:30:00,499 Sensor_data(t,p,h,HI,DP): 24.086166717529295, 1011.71630859375, 31.062257766723633, 25.071485158949994, 5.946890042289745 	loop_iteration: 0 	stick_event: list index out of range 	 CPU_temp: 57.452
+2024-01-22 14:31:35,588 start up: STARTING
+2024-01-22 14:31:36,143 start up: STARTING
+2024-01-22 14:31:36,279 start up: STARTING
+2024-01-22 14:31:36,279 start up: STARTING
+2024-01-22 14:31:45,721 start up: STARTING
+2024-01-22 14:31:45,722 start up: STARTING
+2024-01-22 14:31:58,383 Sensor_data(t,p,h,HI,DP): 20.781114379882816, 1011.9384765625, 31.26148223876953, 24.59823818412024, 3.172302589294679 	loop_iteration: 0 	stick_event: list index out of range 	 CPU_temp: 54.043
+2024-01-22 14:32:09,171 Sensor_data(t,p,h,HI,DP): 21.138532928466795, 1011.937255859375, 29.829561233520508, 24.48836624454912, 2.8211030526721363 	loop_iteration: 0 	stick_event: list index out of range 	 CPU_temp: 55.504
+2024-01-22 14:32:20,308 Sensor_data(t,p,h,HI,DP): 20.595994750976566, 1011.939697265625, 30.64513397216797, 24.55555598427302, 2.7312986184036028 	loop_iteration: 0 	stick_event: list index out of range 	 CPU_temp: 55.017
+2024-01-22 14:32:31,438 Sensor_data(t,p,h,HI,DP): 20.70706729125977, 1011.902099609375, 29.664579391479492, 24.46949616351892, 2.370824864816201 	loop_iteration: 0 	stick_event: list index out of range 	 CPU_temp: 54.043
+2024-01-22 14:32:54,445 Sensor_data(t,p,h,HI,DP): 20.694250396728513, 1011.91845703125, 30.17197608947754, 24.513081930901297, 2.5976968115756334 	loop_iteration: 0 	stick_event: list index out of range 	 CPU_temp: 55.504
+2024-01-22 14:33:05,825 Sensor_data(t,p,h,HI,DP): 19.609177856445314, 1011.95361328125, 29.231889724731445, 24.489515846566405, 1.219003456956482 	loop_iteration: 0 	stick_event: list index out of range 	 CPU_temp: 55.017
+2024-01-22 14:33:16,943 Sensor_data(t,p,h,HI,DP): 20.20725039672852, 1011.923583984375, 29.804656982421875, 24.499508998713555, 2.0052784087895508 	loop_iteration: 0 	stick_event: list index out of range 	 CPU_temp: 54.53
+2024-01-22 14:33:28,944 Sensor_data(t,p,h,HI,DP): 20.059156219482425, 1011.9453125, 29.020214080810547, 24.429187630259705, 1.5056426075220233 	loop_iteration: 0 	stick_event: list index out of range 	 CPU_temp: 54.53
+2024-01-22 14:33:40,089 Sensor_data(t,p,h,HI,DP): 19.479596405029298, 1011.97705078125, 27.267667770385742, 24.258375591401112, 0.14647720239556758 	loop_iteration: 0 	stick_event: list index out of range 	 CPU_temp: 54.53
+2024-01-22 14:33:51,356 Sensor_data(t,p,h,HI,DP): 20.49062185668945, 1011.9814453125, 29.11671257019043, 24.4225289380616, 1.9234435329590969 	loop_iteration: 0 	stick_event: list index out of range 	 CPU_temp: 55.017
+2024-01-22 14:34:02,211 Sensor_data(t,p,h,HI,DP): 20.453596405029295, 1011.993896484375, 28.88013458251953, 24.400469319220985, 1.7777185294938977 	loop_iteration: 0 	stick_event: list index out of range 	 CPU_temp: 55.017
+2024-01-22 14:34:14,382 Sensor_data(t,p,h,HI,DP): 19.498109130859376, 1012.007568359375, 28.976633071899414, 24.47178620587605, 1.0016706842825196 	loop_iteration: 0 	stick_event: list index out of range 	 CPU_temp: 53.556
+2024-01-22 14:34:25,664 Sensor_data(t,p,h,HI,DP): 20.472109130859373, 1012.113037109375, 28.35405921936035, 24.34850636005203, 1.537483422305491 	loop_iteration: 0 	stick_event: list index out of range 	 CPU_temp: 55.504
+2024-01-22 14:34:36,588 Sensor_data(t,p,h,HI,DP): 20.398062042236326, 1012.087646484375, 28.740055084228516, 24.387688067701003, 1.662171897857923 	loop_iteration: 0 	stick_event: list index out of range 	 CPU_temp: 55.991
+2024-01-22 14:34:47,461 Sensor_data(t,p,h,HI,DP): 22.197967864990233, 1012.001220703125, 27.70035743713379, 24.441262746751185, 2.690126522778389 	loop_iteration: 0 	stick_event: list index out of range 	 CPU_temp: 57.452
+2024-01-22 14:34:58,015 background noise: {'x': 0.043126764431595806, 'y': 0.01861042848811485, 'z': 0.9997750971317291, 'i': 0}
+2024-01-22 14:34:58,669 Sensor_data(t,p,h,HI,DP): 23.09792077636719, 1012.0771484375, 28.57196044921875, 24.681222253018564, 3.8986488084690194 	loop_iteration: 0 	stick_event: list index out of range 	 CPU_temp: 57.452
+2024-01-22 14:35:08,883 Sensor_data(t,p,h,HI,DP): 22.59240805053711, 1012.033203125, 28.481687545776367, 24.56450344313295, 3.4201166005414985 	loop_iteration: 0 	stick_event: list index out of range 	 CPU_temp: 57.452
+2024-01-22 14:35:18,989 Sensor_data(t,p,h,HI,DP): 23.62194622802734, 1012.034423828125, 28.431880950927734, 24.81577840553197, 4.278174157123044 	loop_iteration: 0 	stick_event: list index out of range 	 CPU_temp: 58.913
+2024-01-22 14:35:29,109 Sensor_data(t,p,h,HI,DP): 23.023873687744143, 1012.029296875, 28.649782180786133, 24.667596000589995, 3.8737154139376817 	loop_iteration: 0 	stick_event: list index out of range 	 CPU_temp: 58.426
+2024-01-22 14:35:39,305 Sensor_data(t,p,h,HI,DP): 24.410826599121094, 1012.0458984375, 28.512815475463867, 25.082355681132412, 4.994982893653383 	loop_iteration: 0 	stick_event: list index out of range 	 CPU_temp: 59.887
+2024-01-22 14:35:49,743 Sensor_data(t,p,h,HI,DP): 24.016386413574217, 1012.05908203125, 28.54083251953125, 24.944797130803302, 4.670890247666787 	loop_iteration: 0 	stick_event: list index out of range 	 CPU_temp: 58.913

@@ -33,18 +33,17 @@ messageList = []
 
 def screenOutput():
     ScreenOutIteration = 0
-    textOut = False
     while True:
         try:
-            if textOut == False:
-                textOut = True
-                word_scrolling(messageList.pop(0), 15)
-                textOut = False
+            word_scrolling(messageList.pop(0), 15)
+
         except Exception as e:
-            if ScreenOutIteration%10 == 0:
+            if ScreenOutIteration%5 == 0:
+                print("screen output check: " + str(ScreenOutIteration))
+
+            if ScreenOutIteration%50 == 0:
                 print(e)
 
-        print("screen output check: " + str(ScreenOutIteration))
         ScreenOutIteration += 1
         sleep(2)
 
@@ -113,3 +112,4 @@ output_thread.start()
 user_controls.start()
 
 print("please start")
+messageList.append("Please Start")

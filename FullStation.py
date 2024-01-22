@@ -41,12 +41,12 @@ def screenOutput():
                 word_scrolling(messageList.pop(0), 15)
                 textOut = False
         except Exception as e:
-            if ScreenOutIteration%600 == 0:
+            if ScreenOutIteration%10 == 0:
                 print(e)
 
         print("screen output check: " + str(ScreenOutIteration))
         ScreenOutIteration += 1
-        sleep(1)
+        sleep(2)
 
 def user_input():
     iteration_count = 0
@@ -55,6 +55,8 @@ def user_input():
         if message != None:
             messageList.append(message)
         iteration_count += 1
+
+        sleep(1)
         
 
 

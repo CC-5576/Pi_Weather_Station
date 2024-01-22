@@ -1,26 +1,44 @@
 '''Ollie Criddle Pi Weather Station Project Main Page'''
 #imports
+import platform
 from time import sleep
-from screen_scrolling_testing import word_scrolling, test_setup as ts # importing my screen scrolling code
-import datetime as DT # importing the datetime module
-from seismographV2 import seismograph
+from screen_scrolling_testing import word_scrolling # importing my screen scrolling code
+from CommonImports import system_check, logger
+import datetime
 import math
 
-from file_of_greatness import system_check, days_of_the_week, file_iteration_count, logger, CPU_temp
-file_iteration_count = file_iteration_count()
+sensorDataLog = logger("logs/WeatherStation/Sensors.log")
 sense = system_check()
 print("why")
-#logger()
-logger = logger()
+
 #importing setting up constants that will be used later
 
 iteration_count = 0
 event_count = 0
-#setting up iteration count of this file and event counter for the trigger
 
+days_of_the_week = {
+    "6": "Sunday",
+    "5": "Saturday",
+    "4": "Friday",
+    "3": "Thursday",
+    "2": "Wednesday",
+    "1": "Tuesday",
+    "0": "Monday"
+}
 
-sleep(1)
-#ts() #testing the screen outout
+def CPU_temp():
+    '''depending on the system it will either return 0 or the actual cpu temperature'''
+    if "rpi" not in platform.release():
+        CPU_temp = 0
+    else:
+        try:
+            from gpiozero import CPUTemperature
+            CPU_temp = CPUTemperature().temperature
+        except:
+            CPU_temp = 0
+    
+    return(CPU_temp)
+
 
 class CurrentTime:
     """returns the current time, date, day, full_time values in an object"""
@@ -45,10 +63,10 @@ class CurrentTime:
 
 def time_values():
     '''collects the time values and uses the above class to generate and return an object containing them'''
-    time_current = str(DT.datetime.now().time().hour) + ":"+ str(DT.datetime.now().time().minute)
-    date_current = (str(DT.date.today().year)+ "/"+ str(DT.date.today().month)+ "/"+ str(DT.date.today().day))
-    day_current = str(DT.date.today().weekday())
-    full_time = str(DT.datetime.now())
+    time_current = str(datetime.datetime.now().time().hour) + ":"+ str(datetime.datetime.now().time().minute)
+    date_current = (str(datetime.date.today().year)+ "/"+ str(datetime.date.today().month)+ "/"+ str(datetime.date.today().day))
+    day_current = str(datetime.date.today().weekday())
+    full_time = str(datetime.datetime.now())
     day_current = days_of_the_week[day_current]
     value = CurrentTime(time_current, date_current, day_current, full_time)
     return(value)
@@ -89,9 +107,10 @@ def readings_TPH():
 def log(stick_data):
     '''logs all current sensor readings as gathered by reading_TMP'''
     sensor_data = readings_TPH()
-    #print("I run")
-    logger.warning(f"file_iteration: {file_iteration_count} \tSensor_data(t,p,h,HI,DP): {sensor_data.temperature}, {sensor_data.pressure}, {sensor_data.humidity}, {sensor_data.headindex}, {sensor_data.dewpoint} \tloop_iteration: {iteration_count} \tstick_event: {stick_data}")
-    print((f"file_iteration: {file_iteration_count} \tSensor_data(t,p,h): {sensor_data.temperature}, {sensor_data.pressure}, {sensor_data.humidity} \tloop_iteration: {iteration_count} \tstick_event: {stick_data}"))
+    message = f"Sensor_data(t,p,h,HI,DP): {sensor_data.temperature}, {sensor_data.pressure}, {sensor_data.humidity}, {sensor_data.heatindex}, {sensor_data.dewpoint} \tloop_iteration: {iteration_count} \tstick_event: {stick_data} \t CPU_temp: {CPU_temp()}"
+    sensorDataLog.warning(message)
+    print(message)
+    
 
         
 def time_output():
@@ -113,11 +132,11 @@ def sensor_output():
     sleep(1)
     word_scrolling("humidity " + str(int(sensor_values.humidity)) + "%", 15)
 
-def main(iteration_count = 0):
+def main():
+    iteration_count = 0
     while True:
             # get data, apppend, etc
             event = sense.stick.get_events()
-            movment = sense.accelerometer
 
             try: # because this is not always pressed it can and does error when no data input.
 
@@ -138,16 +157,15 @@ def main(iteration_count = 0):
                     values = readings_TPH()
                     word_scrolling("Dewpoint:" + str(values.dewpoint), 15)
                     word_scrolling("Heat Index:" + str(values.heatindex), 10)
+                
+                iteration_count = 0
                     
 
-            except Exception as e: # outputs the error message when an error state happens
+            except Exception as e: # outputs the error message when an error state happens, this will heppen everytime the toggle is not moved as we are looking for a state that has not happend
                 event = e
-                #print(e)
 
             
             if iteration_count%10 == 0:
                 log(event)
             iteration_count += 1
-            #print(iteration_count)
             sleep(1)
-            pass

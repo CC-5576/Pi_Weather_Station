@@ -1,10 +1,9 @@
-from file_of_greatness import system_check, logger, timeSubtraction as TS
-from time import sleep, time
+from CommonImports import system_check, logger
 import datetime
 from math import log
-from letters_json_write import letters
 
-logger = logger()
+DebugLog = logger("logs/seismograph/Debug.log")
+HistoricalData = logger("logs/seismograph/historicalData.log")
 
 sense = system_check()
 
@@ -17,7 +16,7 @@ def setup():
         xyz_avg_data.append(mean(START_VALUE["x"] - sense.accelerometer_raw["x"],
         START_VALUE["y"] - sense.accelerometer_raw["y"],
         START_VALUE["z"] - sense.accelerometer_raw["z"]))
-    print("calibrated")
+    print("seismograph calibrated")
     return(START_VALUE)
 
 def mean(X,Y,Z):
@@ -28,16 +27,18 @@ def data_collection(data_length = 7000, iterations = 1, START_VALUE = setup()):
     data = []
     for y in range(iterations):
         data = []
-        with open("logs/2024-01-21QuakeTrainingData.log", "a") as logs:
-            for x in range(data_length):
-                data.append([mean(START_VALUE["x"] - sense.accelerometer_raw["x"],
-                START_VALUE["y"] - sense.accelerometer_raw["y"],
-                START_VALUE["z"] - sense.accelerometer_raw["z"])
-                ,datetime.datetime.now().time()])
-            logs.write(str(data))
-            logs.close()
-        print(data[0][1]<data[data_length-1][1])
-        print(TS(data[0][1],data[data_length-1][1]))
+        for x in range(data_length):
+            data.append([mean(START_VALUE["x"] - sense.accelerometer_raw["x"],
+            START_VALUE["y"] - sense.accelerometer_raw["y"],
+            START_VALUE["z"] - sense.accelerometer_raw["z"])
+            ,datetime.datetime.now().time()])
+            
+            if x%int(data_length/100) == 0: #shows something is happening
+                print(x)
+        
+        HistoricalData.warning(str(data))
+        HistoricalData.warning(f"Time Taken For Collection: {(timeSubtraction(data[0][1],data[data_length-1][1]))}")
+        print(timeSubtraction(data[0][1],data[data_length-1][1]))
     
     print("done")
     return(data)
@@ -84,7 +85,7 @@ def seismograph(DATA_LENGTH = 7000, START_VALUE = setup()):
         log_time = log((8*time_between_peaks), 10)
     except Exception as e:
         print(e)
-        logger.warning(f"line 79 seismograph: {e} \ttime_between_peaks = {time_between_peaks[:10]}")
+        DebugLog.warning(f"line 79 seismograph: {e} \ttime_between_peaks = {time_between_peaks[:10]}")
         log_time = 0
 
     distance_from_source = abs((3 * log_time - 2.92)*(8/5)*10**2) #abs returns positive value
@@ -98,3 +99,33 @@ def seismograph(DATA_LENGTH = 7000, START_VALUE = setup()):
         return(0)
     else:
         return(richter_scale)
+
+def timeSubtraction(older, newer):
+        """using the datetime.time() format, this function will subtract the two 
+        times to output a positive number always subtracting the earlier time"""
+        #checks that the newer time is infact the newer time (issues would arrise if the quake happened as the date changes, 
+        #this could be fixed by changing it to use the datetime format rather than just time, or by using epoc time)
+        if older > newer:
+            tempTime = older
+            older = newer
+            newer = tempTime
+
+        #turns the given data into microseconds
+        oldtime = (((older.hour*60+older.minute)*60+older.second)*(10**6)+older.microsecond)
+        newtime = (((newer.hour*60+newer.minute)*60+newer.second)*(10**6)+newer.microsecond)
+
+        old = newtime-oldtime
+
+        #changes the time back into hours to turn it back into the datetime.time() format
+        old = old/(60*60*10**6)
+        hours = int(old)
+
+        old = (old - hours)*60
+        minutes = int(old)
+
+        old = (old-minutes)*60
+        seconds = int(old)
+
+        old = (old-seconds) * (10**6)
+        microseconds = int(old)
+        return(datetime.time(hours, minutes, seconds, microseconds))

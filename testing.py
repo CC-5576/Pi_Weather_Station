@@ -1,9 +1,6 @@
-from file_of_greatness import system_check, logger
-from time import sleep, time
+from FullStation import system_check as sense
 from datetime import datetime as dt
 import datetime
-from numpy import average as npavg
-sense = system_check()
 
 def timesubtraction(older, newer):
         oldtime = (((older.hour*60+older.minute)*60+older.second)*(10**6)+older.microsecond)
@@ -55,7 +52,7 @@ def main(iterations = 11, data_length = 100*10):
             for x in range(data_length):
                 # data[0].append(sense.accelerometer_raw["x"])
                 # data[1].append(dt.now().time())
-                data.append([sense.accelerometer_raw["x"], dt.now().time()])
+                data.append([sense().accelerometer_raw["x"], dt.now().time()])
             logs.write(str(data))
             logs.close()
         

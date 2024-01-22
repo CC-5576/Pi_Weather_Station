@@ -1,8 +1,9 @@
 from time import sleep
 import numpy as np
 import json
-from file_of_greatness import system_check, logger
+from CommonImports import system_check, logger
 
+debugLog = logger("logs/ScreenScrolling/Debug.log")
 sense = system_check()
 
 RED = (0, 255, 0)
@@ -35,6 +36,7 @@ def word_scrolling(text, FrameRate = 10):
             word_list = np.append(word_list, letters[character], axis=1)
         except Exception as e:
             print(e)
+            debugLog.warning(f"text creation error: {e}")
     
     word_list = np.append(word_list, ALL_CLEAR, axis=1)
 
